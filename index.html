@@ -35,6 +35,9 @@
             font-family: "Arial Black",serif;
         }
 
+
+
+
     </style>
 </head>
 
@@ -227,10 +230,63 @@
                             color: darkorange;
                             transform: scale(1.1);
                         }
+
+                        /* Styles modernisés pour tous les menus déroulants */
+                        .kingster-main-menu > ul > li.menu-item-has-children > .sub-menu {
+                            border-top: 3px solid darkorange;
+                            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                            padding: 20px !important;
+                            min-width: 250px;
+                            background: white;
+                            border-radius: 0 0 8px 8px;
+                        }
+
+                        /* Styles unifiés pour les sous-éléments */
+                        .kingster-main-menu .sub-menu .menu-item {
+                            padding: 5px 0;
+                            position: relative;
+                        }
+
+                        .kingster-main-menu .sub-menu .menu-item > a {
+                            display: block;
+                            padding: 10px 15px;
+                            color: #555 !important;
+                            font-weight: 500;
+                            transition: all 0.3s ease;
+                            border-left: 3px solid transparent;
+                        }
+
+                        .kingster-main-menu .sub-menu .menu-item > a:hover {
+                            color: darkorange !important;
+                            background: rgba(255,140,0,0.05);
+                            border-left: 3px solid darkorange;
+                            transform: translateX(5px);
+                        }
+
+                        /* Style pour les titres de sections (comme dans Formations) */
+                        .sub-menu .menu-section-title {
+                            display: block;
+                            padding: 8px 15px;
+                            margin: 15px 0 10px;
+                            background: darkorange;
+                            color: white;
+                            font-weight: 600;
+                            border-radius: 4px;
+                            text-transform: uppercase;
+                            font-size: 14px;
+                            letter-spacing: 1px;
+                        }
+
+                        /* Mega menu amélioré (conservé tel quel) */
+                        .sf-mega {
+                            width: 100% !important;
+                            left: 0 !important;
+                            padding: 30px !important;
+                        }
                     </style>
 
-                    <div class="kingster-header-background"></div>
-                    <div class="kingster-header-container kingster-container">
+                    <div class="kingster-header-background" style="background-color: lightslategray;"></div>
+                    <div class="kingster-header-container kingster-container" style="color: darkorange;">
                         <div class="kingster-header-container-inner clearfix">
                             <div class="kingster-navigation kingster-item-pdlr clearfix">
                                 <div class="kingster-main-menu" id="kingster-main-menu">
@@ -238,12 +294,14 @@
                                         <li class="menu-item menu-item-home current-menu-item page_item page-item-6208 current_page_item kingster-normal-menu">
                                             <a href="index.html">Accueil</a>
                                         </li>
+                                        <!-- Pages -->
                                         <li class="menu-item menu-item-has-children kingster-normal-menu">
                                             <a href="#" class="sf-with-ul-pre">Pages</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item" data-size="60"><a href="about-us.html">À propos de Performics</a></li>
-                                                <li class="menu-item" data-size="60"><a href="contact.html">Contact</a></li>
-                                                <li class="menu-item" data-size="60"><a href="gallery.html">Galerie</a></li>
+                                                <li class="menu-item"><span class="menu-section-title">Navigation</span></li>
+                                                <li class="menu-item"><a href="about-us.html">À propos de Performics</a></li>
+                                                <li class="menu-item"><a href="contact.html">Contact</a></li>
+                                                <li class="menu-item"><a href="gallery.html">Galerie</a></li>
                                             </ul>
                                         </li>
                                         <li class="menu-item menu-item-has-children kingster-mega-menu">
@@ -297,11 +355,15 @@
                                                 </ul>
                                             </div>
                                         </li>
+                                        <!-- Admissions -->
                                         <li class="menu-item menu-item-has-children kingster-normal-menu">
                                             <a href="apply-to-kingster.html" class="sf-with-ul-pre">Admissions</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item" data-size="60"><a href="apply-to-kingster.html">Candidature</a></li>
-                                                <li class="menu-item" data-size="60"><a href="event-calendar.html">Calendrier des événements</a></li>
+                                                <li class="menu-item"><span class="menu-section-title">Procédures</span></li>
+                                                <li class="menu-item"><a href="apply-to-kingster.html">Candidature</a></li>
+                                                <li class="menu-item"><a href="event-calendar.html">Calendrier des événements</a></li>
+                                                <li class="menu-item"><span class="menu-section-title">Documents</span></li>
+                                                <li class="menu-item"><a href="#">Dossier d'inscription</a></li>
                                             </ul>
                                         </li>
                                         <li class="kingster-center-nav-menu-item">
@@ -340,6 +402,7 @@
                         </div>
                     </div>
                 </header>
+
 
             </div>
             <div class="kingster-page-wrapper" id="kingster-page-wrapper">
