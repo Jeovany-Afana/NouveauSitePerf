@@ -56,60 +56,306 @@
                     </div>
                 </div>
 
-                <div class="kingster-mobile-menu-left">
-                    <div class="kingster-mobile-menu">
-                        <a class="kingster-mm-menu-button kingster-mobile-menu-button kingster-mobile-button-hamburger" href="#kingster-mobile-menu"><span></span></a>
-                        <div class="kingster-mm-menu-wrap kingster-navigation-font" id="kingster-mobile-menu" data-slide="right">
-                            <ul id="menu-main-navigation" class="m-menu">
-                                <li class="menu-item current-menu-item page_item page-item-6208 current_page_item">
-                                    <a href="index.html" aria-current="page">Accueil</a>
-                                </li>
-                                <li class="menu-item menu-item-has-children">
-                                    <a href="#">Pages</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item"><a href="about-us.html">À propos de Performics</a></li>
-                                        <li class="menu-item"><a href="contact.html">Contact</a></li>
-                                        <li class="menu-item"><a href="gallery.html">Galerie</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item menu-item-has-children">
-                                    <a href="bachelor-of-science-in-business-administration.html">Formations</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item menu-item-has-children">
-                                            <a>Premier Cycle</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item"><a href="bachelor-of-science-in-business-administration.html">LICENCE EN GESTION(Options)</a></li>
-                                                <li class="menu-item"><a href="school-of-law.html">LICENCE EN INFORMATIQUE(Options)</a></li>
-                                                <li class="menu-item"><a href="engineering.html">LICENCE GEOMATIQUE</a></li>
-                                                <li class="menu-item"><a href="medicine.html">LICENCE ELECTROMECANIQUE</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item menu-item-has-children" data-size="15">
-                                            <a href="#" class="sf-with-ul-pre">Cycle supérieur</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item"><a href="hospitality-management.html">MASTER OF SCIENCE (MSC) IN MANAGEMENT(Options)</a></li>
-
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item menu-item-has-children">
-                                    <a href="apply-to-kingster.html">Admissions</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item"><a href="apply-to-kingster.html">Candidature</a></li>
-                                        <li class="menu-item"><a href="event-calendar.html">Calendrier des événements</a></li>
-                                    </ul>
-                                </li>
-
-                                <li class="menu-item"><a href="athletics.html">Vie Associative</a></li>
-                                <li class="menu-item"><a href="university-life.html">Vie universitaire</a></li>
-                                <li class="menu-item menu-item-has-children">
-                                    <a href="blog-full-right-sidebar.html">Blog</a>
-                                </li>
-                            </ul>
+                <!-- Menu Mobile Premium -->
+                <div class="performics-mobile-menu">
+                    <!-- Bouton hamburger amélioré -->
+                    <div class="menu-toggle" style="background-color: darkorange; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center;">
+                        <div class="hamburger" style="width: 26px; height: 2px; background: white; position: relative; transition: all 0.3s ease;">
+                            <span style="position: absolute; width: 100%; height: 100%; background: white; top: -8px; left: 0; transition: all 0.3s ease;"></span>
+                            <span style="position: absolute; width: 100%; height: 100%; background: white; top: 8px; left: 0; transition: all 0.3s ease;"></span>
                         </div>
+                        <span style="color: white; font-weight: 600; font-size: 1.1rem;">Menu</span>
                     </div>
+
+                    <!-- Menu déroulant premium -->
+                    <nav class="mobile-nav" style="background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%); box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: fixed; top: 0; left: -100%; width: 85%; max-width: 320px; height: 100vh; z-index: 1000; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); overflow-y: auto;">
+                        <!-- En-tête du menu -->
+                        <div class="mobile-header" style="background-color: darkorange; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+                            <div class="mobile-logo">
+                                <a href="index.html">
+                                    <img src="./images/Performics/logo-removebg-preview.png" alt="Logo Performics" style="max-width: 160px; filter: brightness(0) invert(1);">
+                                </a>
+                            </div>
+                            <button class="close-menu" style="background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">×</button>
+                        </div>
+
+                        <!-- Menu principal amélioré -->
+                        <ul class="mobile-menu" style="list-style: none; padding: 0; margin: 0;">
+                            <!-- Accueil -->
+                            <li style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="index.html" class="menu-link" style="display: block; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600; position: relative; transition: all 0.3s ease;">
+                                    <i class="fas fa-home" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Accueil
+                                    <span class="active-indicator" style="position: absolute; right: 20px; color: darkorange; font-weight: bold;">•</span>
+                                </a>
+                            </li>
+
+                            <!-- Formations -->
+                            <li class="menu-item-has-children" style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="#" class="menu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600;">
+                                    <span><i class="fas fa-graduation-cap" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Formations</span>
+                                    <i class="fas fa-chevron-down" style="color: #999; transition: transform 0.3s ease;"></i>
+                                </a>
+                                <ul class="sub-menu" style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.05);">
+                                    <!-- Business School -->
+                                    <li class="menu-item-has-children">
+                                        <a class="submenu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 25px 15px 60px; color: #555; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.03);">
+              <span style="position: relative;">
+                <span class="submenu-icon" style="position: absolute; left: -25px; color: darkorange;">→</span>
+                Business School
+              </span>
+                                            <i class="fas fa-chevron-down" style="color: #999; font-size: 0.8rem; transition: transform 0.3s ease;"></i>
+                                        </a>
+                                        <ul class="nested-sub-menu" style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.03);">
+                                            <!-- Premier Cycle -->
+                                            <li class="menu-item-has-children">
+                                                <a class="nested-submenu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 25px 12px 80px; color: #555; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.02);">
+                                                    Premier Cycle
+                                                    <i class="fas fa-chevron-down" style="color: #999; font-size: 0.8rem; transition: transform 0.3s ease;"></i>
+                                                </a>
+                                                <ul style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.02);">
+                                                    <li><a href="bachelor-of-science-in-business-administration.html" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">Gestion des Entreprises</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- Second Cycle -->
+                                            <li class="menu-item-has-children">
+                                                <a class="nested-submenu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 25px 12px 80px; color: #555; text-decoration: none;">
+                                                    Second Cycle
+                                                    <i class="fas fa-chevron-down" style="color: #999; font-size: 0.8rem; transition: transform 0.3s ease;"></i>
+                                                </a>
+                                                <ul style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.02);">
+                                                    <li><a href="hospitality-management.html" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">MSc in Management</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- École d'Ingénieur -->
+                                    <li class="menu-item-has-children">
+                                        <a class="submenu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 25px 15px 60px; color: #555; text-decoration: none;">
+              <span style="position: relative;">
+                <span class="submenu-icon" style="position: absolute; left: -25px; color: darkorange;">→</span>
+                École d'Ingénieur
+              </span>
+                                            <i class="fas fa-chevron-down" style="color: #999; font-size: 0.8rem; transition: transform 0.3s ease;"></i>
+                                        </a>
+                                        <ul class="nested-sub-menu" style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.03);">
+                                            <!-- Premier Cycle -->
+                                            <li class="menu-item-has-children">
+                                                <a class="nested-submenu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 25px 12px 80px; color: #555; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.02);">
+                                                    Premier Cycle
+                                                    <i class="fas fa-chevron-down" style="color: #999; font-size: 0.8rem; transition: transform 0.3s ease;"></i>
+                                                </a>
+                                                <ul style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.02);">
+                                                    <li><a href="school-of-law.html" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">Informatique</a></li>
+                                                    <li><a href="engineering.html" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">Géomatique</a></li>
+                                                    <li><a href="medicine.html" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">Électromécanique</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- Second Cycle -->
+                                            <li class="menu-item-has-children">
+                                                <a class="nested-submenu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 25px 12px 80px; color: #555; text-decoration: none;">
+                                                    Second Cycle
+                                                    <i class="fas fa-chevron-down" style="color: #999; font-size: 0.8rem; transition: transform 0.3s ease;"></i>
+                                                </a>
+                                                <ul style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.02);">
+                                                    <li><a href="#" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">Master en Ingénierie</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Admissions -->
+                            <li class="menu-item-has-children" style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="apply-to-kingster.html" class="menu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600;">
+                                    <span><i class="fas fa-file-signature" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Admissions</span>
+                                    <i class="fas fa-chevron-down" style="color: #999; transition: transform 0.3s ease;"></i>
+                                </a>
+                                <ul class="sub-menu" style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.05);">
+                                    <li><a href="apply-to-kingster.html#procedureCandidature" class="submenu-link" style="display: block; padding: 15px 25px 15px 60px; color: #555; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.03); position: relative;">
+                                        <span class="submenu-icon" style="position: absolute; left: 35px; color: darkorange;">→</span> Procédures
+                                    </a></li>
+                                    <li><a href="apply-to-kingster.html" class="submenu-link" style="display: block; padding: 15px 25px 15px 60px; color: #555; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.03); position: relative;">
+                                        <span class="submenu-icon" style="position: absolute; left: 35px; color: darkorange;">→</span> Candidature
+                                    </a></li>
+                                    <li><a href="apply-to-kingster.html#conditionsAdmissions" class="submenu-link" style="display: block; padding: 15px 25px 15px 60px; color: #555; text-decoration: none; position: relative;">
+                                        <span class="submenu-icon" style="position: absolute; left: 35px; color: darkorange;">→</span> Documents & Conditions
+                                    </a></li>
+                                </ul>
+                            </li>
+
+                            <!-- Vie Universitaire -->
+                            <li style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="athletics.html" class="menu-link" style="display: block; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600;">
+                                    <i class="fas fa-university" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Vie Universitaire
+                                </a>
+                            </li>
+
+                            <!-- Incubateur -->
+                            <li style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="university-life.html" class="menu-link" style="display: block; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600;">
+                                    <i class="fas fa-lightbulb" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Incubateur
+                                </a>
+                            </li>
+
+                            <!-- Career Service -->
+                            <li class="menu-item-has-children" style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="#" class="menu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600;">
+                                    <span><i class="fas fa-briefcase" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Career Service</span>
+                                    <i class="fas fa-chevron-down" style="color: #999; transition: transform 0.3s ease;"></i>
+                                </a>
+                                <ul class="sub-menu" style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.05);">
+                                    <li><a href="#" class="submenu-link" style="display: block; padding: 15px 25px 15px 60px; color: #555; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.03); position: relative;">
+                                        <span class="submenu-icon" style="position: absolute; left: 35px; color: darkorange;">→</span> Offres & Stage
+                                    </a></li>
+                                    <li><a href="#" class="submenu-link" style="display: block; padding: 15px 25px 15px 60px; color: #555; text-decoration: none; position: relative;">
+                                        <span class="submenu-icon" style="position: absolute; left: 35px; color: darkorange;">→</span> Ateliers & Coaching
+                                    </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!-- Pied de page du menu -->
+                        <div class="mobile-footer" style="padding: 20px; text-align: center; background-color: #f5f5f5; margin-top: auto;">
+                            <div class="social-links" style="margin-bottom: 15px;">
+                                <a href="#" style="color: darkorange; margin: 0 10px; font-size: 1.2rem;"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" style="color: darkorange; margin: 0 10px; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                                <a href="#" style="color: darkorange; margin: 0 10px; font-size: 1.2rem;"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" style="color: darkorange; margin: 0 10px; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <p style="color: #777; font-size: 0.8rem; margin: 0;">© 2025 Performics Africa. Tous droits réservés.</p>
+                        </div>
+                    </nav>
+                    <div class="menu-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 999; display: none;"></div>
                 </div>
+
+                <style>
+                    /* Animation améliorée */
+                    .performics-mobile-menu.active .hamburger span:first-child {
+                        transform: rotate(45deg) translate(5px, 5px);
+                    }
+
+                    .performics-mobile-menu.active .hamburger span:last-child {
+                        transform: rotate(-45deg) translate(5px, -5px);
+                    }
+
+                    /* Effets de survol premium */
+                    .menu-link:hover, .submenu-link:hover, .nested-submenu-link:hover {
+                        background-color: rgba(255,140,0,0.08) !important;
+                        color: darkorange !important;
+                        padding-left: 30px !important;
+                    }
+
+                    .menu-link:hover .submenu-icon,
+                    .submenu-link:hover .submenu-icon,
+                    .nested-submenu-link:hover .submenu-icon {
+                        left: 30px !important;
+                    }
+
+                    /* Transition fluide */
+                    .mobile-nav.active {
+                        left: 0 !important;
+                    }
+
+                    .menu-overlay.active {
+                        display: block;
+                    }
+
+                    /* Indicateur de page active */
+                    .current-menu-item > .menu-link {
+                        color: darkorange !important;
+                        background-color: rgba(255,140,0,0.1) !important;
+                    }
+
+                    /* Rotation des icônes flèches */
+                    .menu-toggle-sub.active i.fa-chevron-down {
+                        transform: rotate(180deg) !important;
+                    }
+
+                    /* Scroll personnalisé */
+                    .mobile-nav::-webkit-scrollbar {
+                        width: 5px;
+                    }
+
+                    .mobile-nav::-webkit-scrollbar-thumb {
+                        background-color: darkorange;
+                        border-radius: 10px;
+                    }
+                </style>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Éléments du DOM
+                        const mobileMenu = document.querySelector('.performics-mobile-menu');
+                        const menuToggle = mobileMenu.querySelector('.menu-toggle');
+                        const closeBtn = mobileMenu.querySelector('.close-menu');
+                        const mobileNav = mobileMenu.querySelector('.mobile-nav');
+                        const menuOverlay = mobileMenu.querySelector('.menu-overlay');
+                        const subMenuToggles = mobileMenu.querySelectorAll('.menu-toggle-sub');
+
+                        // Ouvrir le menu
+                        menuToggle.addEventListener('click', function() {
+                            mobileMenu.classList.add('active');
+                            mobileNav.classList.add('active');
+                            menuOverlay.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                        });
+
+                        // Fermer le menu
+                        function closeMenu() {
+                            mobileMenu.classList.remove('active');
+                            mobileNav.classList.remove('active');
+                            menuOverlay.classList.remove('active');
+                            document.body.style.overflow = '';
+                        }
+
+                        closeBtn.addEventListener('click', closeMenu);
+                        menuOverlay.addEventListener('click', closeMenu);
+
+                        // Gestion des sous-menus
+                        subMenuToggles.forEach(toggle => {
+                            toggle.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                const parentItem = this.parentElement;
+                                const subMenu = this.nextElementSibling;
+                                const chevron = this.querySelector('i.fa-chevron-down');
+
+                                // Fermer les autres sous-menus au même niveau
+                                if (parentItem.parentElement.classList.contains('mobile-menu')) {
+                                    const allSubMenus = parentItem.parentElement.querySelectorAll('.sub-menu');
+                                    allSubMenus.forEach(menu => {
+                                        if (menu !== subMenu) {
+                                            menu.style.display = 'none';
+                                            menu.previousElementSibling.classList.remove('active');
+                                            menu.previousElementSibling.querySelector('i.fa-chevron-down').style.transform = '';
+                                        }
+                                    });
+                                }
+
+                                // Basculer le sous-menu actuel
+                                if (subMenu.style.display === 'block') {
+                                    subMenu.style.display = 'none';
+                                    this.classList.remove('active');
+                                    if (chevron) chevron.style.transform = '';
+                                } else {
+                                    subMenu.style.display = 'block';
+                                    this.classList.add('active');
+                                    if (chevron) chevron.style.transform = 'rotate(180deg)';
+                                }
+                            });
+                        });
+
+                        // Fermer le menu lors du clic sur un lien
+                        mobileNav.querySelectorAll('a:not(.menu-toggle-sub)').forEach(link => {
+                            link.addEventListener('click', function() {
+                                if (!this.classList.contains('menu-toggle-sub')) {
+                                    closeMenu();
+                                }
+                            });
+                        });
+                    });
+                </script>
             </div>
         </div>
     </div>
@@ -384,6 +630,7 @@
                         </div>
                     </div>
                 </header>
+
 
 
             </div>
