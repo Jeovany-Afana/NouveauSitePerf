@@ -700,7 +700,7 @@
                                                 <li>Recevez un accusé réception immédiat</li>
                                             </ol>
                                         </div>
-                                        <a href="#candidatureForm" class="option-button">
+                                        <a href="#candidatureForm2" class="option-button">
                                             Postuler en ligne
                                             <i class="fas fa-arrow-right"></i>
                                         </a>
@@ -1465,85 +1465,135 @@
      SECTION : FORMULAIRE DE CANDIDATURE
      (Design moderne et responsive pour Performics)
 ───────────────────────────────────────────────────────── -->
-            <section class="candidature-section" id="candidatureForm">
+            <section class="candidature-section" id="candidatureForm2">
                 <div class="candidature-container">
                     <header class="candidature-header">
                         <h2 style="font-family: 'Arial Black';">Formulaire de Candidature</h2>
                         <p>Remplissez ce formulaire pour postuler à Performics. Les champs marqués d’un <span class="required">*</span> sont obligatoires.</p>
                     </header>
 
-                    <form class="candidature-form" method="post" enctype="multipart/form-data">
+                    <form id="candidatureForm" class="candidature-form" enctype="multipart/form-data">
+                        <!-- NOM + PRÉNOM -->
                         <div class="form-row">
                             <div class="form-field">
-                                <label for="prenom">Prénom <span class="required">*</span></label>
-                                <input type="text" id="prenom" name="prenom" placeholder="Prénom" required>
+                                <label>Prénom <span class="required">*</span></label>
+                                <input name="prenom" required>
                             </div>
                             <div class="form-field">
-                                <label for="nom">Nom <span class="required">*</span></label>
-                                <input type="text" id="nom" name="nom" placeholder="Nom" required>
+                                <label>Nom <span class="required">*</span></label>
+                                <input name="nom" required>
                             </div>
                         </div>
 
+                        <!-- ADRESSE + TÉL -->
                         <div class="form-field">
-                            <label for="adresse">Adresse <span class="required">*</span></label>
-                            <input type="text" id="adresse" name="adresse" placeholder="Adresse" required>
+                            <label>Adresse <span class="required">*</span></label>
+                            <input name="adresse" required>
+                        </div>
+                        <div class="form-field">
+                            <label>Téléphone / WhatsApp <span class="required">*</span></label>
+                            <input name="telephone" required placeholder="+221 …">
                         </div>
 
+                        <!-- E-MAIL -->
                         <div class="form-field">
-                            <label for="telephone">Téléphone / WhatsApp <span class="required">*</span></label>
-                            <input type="tel" id="telephone" name="telephone" required placeholder="+221 00 000 00 00">
+                            <label>Email <span class="required">*</span></label>
+                            <input type="email" name="email" required placeholder="exemple@mail.com">
                         </div>
 
+                        <!-- PRÉFÉRENCE DE CONTACT (inline) -->
+                        <div class="form-field">
+                            <label>Réponse souhaitée <span class="required">*</span></label>
+                            <div class="radio-inline">
+                                <label><input type="radio" name="contactPref" value="whatsapp" required> WhatsApp</label>
+                                <label><input type="radio" name="contactPref" value="email" required> Email</label>
+                            </div>
+                        </div>
+
+                        <!-- ÉTABLISSEMENT + CLASSE -->
                         <div class="form-row">
                             <div class="form-field">
-                                <label for="etablissement">Établissement <span class="required">*</span></label>
-                                <input type="text" id="etablissement" name="etablissement" placeholder="Etablissement" required>
+                                <label>Établissement <span class="required">*</span></label>
+                                <input name="etablissement" required>
                             </div>
                             <div class="form-field">
-                                <label for="classe">Classe <span class="required">*</span></label>
-                                <input type="text" id="classe" name="classe" required placeholder="Ex. : Terminale">
+                                <label>Classe <span class="required">*</span></label>
+                                <input name="classe" required placeholder="Terminale">
                             </div>
                         </div>
 
+                        <!-- SÉRIE -->
                         <div class="form-field">
-                            <label for="serie">Série <span class="required">*</span></label>
-                            <select id="serie" name="serie" required>
-                                <option value="" disabled selected>Choisissez votre série</option>
-                                <option value="L1">L1</option>
-                                <option value="L2">L2</option>
-                                <option value="S1">S1</option>
-                                <option value="S2">S2</option>
-                                <!-- autres options -->
+                            <label>Série <span class="required">*</span></label>
+                            <select name="serie" required>
+                                <option value="" disabled selected>Choisissez…</option>
+                                <option>L1</option><option>L2</option><option>S1</option><option>S2</option>
                             </select>
                         </div>
 
+                        <!-- TYPE ADMISSION -->
                         <div class="form-field">
-                            <label for="programme">Quel programme vous intéresse après le bac ? <span class="required">*</span></label>
-                            <textarea id="programme" name="programme" rows="4" required></textarea>
+                            <label>Type d’admission <span class="required">*</span></label>
+                            <select name="admissionType" required>
+                                <option value="" disabled selected>Choisissez…</option>
+                                <option value="nouveau">Nouvel étudiant</option>
+                                <option value="parallele">Admission parallèle</option>
+                            </select>
                         </div>
 
+                        <!-- PROGRAMME -->
                         <div class="form-field">
-                            <label>Pièces jointes requises <span class="required">*</span></label>
-                            <div class="upload-zone" id="upload-zone">
-                                <input type="file" id="pieces-jointes" name="pieces-jointes" multiple required>
-                                <p><i class="fa fa-cloud-upload-alt"></i> Glissez-déposez ou cliquez pour télécharger</p>
-                                <small>(Relevés, diplômes, pièce d’identité…)</small>
+                            <label>Programme post-bac <span class="required">*</span></label>
+                            <textarea name="programme" rows="4" required></textarea>
+                        </div>
+
+                        <!-- UPLOAD FICHIERS -->
+                        <div class="form-field">
+                            <label>Pièces jointes <span class="required">*</span></label>
+                            <div class="upload-zone">
+                                <input type="file" id="filesInput" name="files" multiple required>
+                                <p><i class="fa fa-cloud-upload-alt"></i> Glissez / sélectionnez vos documents</p>
                             </div>
-                            <div id="file-list" class="file-list">Aucun fichier sélectionné</div>
+                            <ul id="fileList" class="file-list">Aucun fichier sélectionné</ul>
                         </div>
 
+                        <!-- CONSENTEMENT -->
                         <div class="form-field checkbox-field">
-                            <input type="checkbox" id="consentement" name="consentement" required>
-                            <label for="consentement">
-                                Je certifie que les informations fournies sont exactes et j’autorise Performics à utiliser ces données.
-                                <span class="required">*</span>
-                            </label>
+                            <input type="checkbox" name="consentement" required>
+                            <label>Je certifie l’exactitude des informations <span class="required">*</span></label>
                         </div>
 
-                        <div class="form-submit">
-                            <button type="submit">Soumettre ma candidature</button>
-                        </div>
+                        <div class="form-submit"><button>Soumettre ma candidature</button></div>
                     </form>
+
+                    <!-- STYLE COMPLÉMENTAIRE -->
+                    <style>
+                        .radio-inline{display:flex;gap:25px;margin-top:8px}
+                        .radio-inline input{accent-color:darkorange;margin-right:6px}
+                        .radio-inline label{display:flex;align-items:center;font-size:14px;color:#444;cursor:pointer}
+                        .file-list{margin-top:10px;font-size:14px;color:#555;list-style:none;padding-left:0}
+                        .file-list li{margin-bottom:4px}
+                    </style>
+
+                    <!-- JS LISTE DES FICHIERS -->
+                    <script>
+                        const inputFiles = document.getElementById('filesInput');
+                        const fileListUl = document.getElementById('fileList');
+
+                        inputFiles.addEventListener('change', () => {
+                            fileListUl.innerHTML = '';
+                            if (!inputFiles.files.length) {
+                                fileListUl.textContent = 'Aucun fichier sélectionné';
+                                return;
+                            }
+                            [...inputFiles.files].forEach(f => {
+                                const li = document.createElement('li');
+                                li.textContent = `${f.name} (${(f.size/1024).toFixed(1)} Ko)`;
+                                fileListUl.appendChild(li);
+                            });
+                        });
+                    </script>
+
                 </div>
             </section>
 
@@ -1716,7 +1766,7 @@
 
             <script>
                 // Affiche la liste des fichiers sélectionnés
-                document.getElementById('pieces-jointes').addEventListener('change', function(e) {
+                document.getElementById('filesInput').addEventListener('change', function(e) {
                     const list = document.getElementById('file-list');
                     list.innerHTML = '';
                     if (!this.files.length) {
@@ -2154,6 +2204,100 @@
             </script>
         </div>
     </div>
+
+    <!-- ✅ Modale succès candidature -->
+    <div id="candidatureModal" class="pf-modal" role="dialog" aria-modal="true">
+        <div class="pf-modal-content">
+    <span class="pf-check">
+      <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+            <h3 class="pf-title">Candidature envoyée !</h3>
+            <p class="pf-text">Nous étudierons votre dossier et vous contacterons rapidement.</p>
+            <button class="pf-btn" type="button">OK</button>
+            <button class="pf-close" aria-label="Fermer">&times;</button>
+        </div>
+    </div>
+
+    <style>
+        /* reprend les classes de la modale “contact” */
+        .pf-modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:.35s;z-index:9999}
+        .pf-modal.show{opacity:1;pointer-events:all}
+        .pf-modal-content{background:#fff;border-radius:14px;max-width:440px;width:90%;padding:48px 40px 40px;text-align:center;box-shadow:0 16px 48px rgba(0,0,0,.25);position:relative;animation:pop .45s cubic-bezier(.22,1,.36,1)}
+        @keyframes pop{0%{transform:scale(.8);opacity:0}100%{transform:scale(1);opacity:1}}
+        .pf-check{--s:80px;display:inline-flex;align-items:center;justify-content:center;width:var(--s);height:var(--s);margin:-90px auto 16px;background:darkorange;border-radius:50%;color:#fff;box-shadow:0 0 0 6px #fff,0 0 16px rgba(0,0,0,.2);animation:pulse 1.8s ease-out infinite}
+        @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+        .pf-title{font-family:\"Arial Black\",sans-serif;font-size:1.7rem;margin-bottom:.35em;color:darkorange}
+        .pf-text{color:#555;line-height:1.6;margin-bottom:32px}
+        .pf-btn{background:darkorange;color:#fff;border:none;padding:12px 32px;font-size:1rem;border-radius:50px;cursor:pointer;transition:transform .25s,box-shadow .25s}
+        .pf-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,140,0,.35)}
+        .pf-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.8rem;color:#888;cursor:pointer;transition:transform .25s}
+        .pf-close:hover{transform:rotate(90deg)}
+    </style>
+
+
+    <script>
+        /* Sélecteurs */
+        const form   = document.getElementById('candidatureForm');
+        const filesI = document.getElementById('filesInput');
+        const modal  = document.getElementById('candidatureModal');
+        const okBtn  = modal.querySelector('.pf-btn');
+        const closeB = modal.querySelector('.pf-close');
+
+        /* Modale helpers */
+        const openM = () => modal.classList.add('show');
+        const closeM= () => modal.classList.remove('show');
+        okBtn .addEventListener('click', closeM);
+        closeB.addEventListener('click', closeM);
+        modal .addEventListener('click', e => { if (e.target===modal) closeM(); });
+
+        /* Regex */
+        const nameRE   = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]{2,40}$/;
+        // 9 chiffres commençant par 7, avec ou sans préfixe +221 ou 0
+        const telRE = /^(?:\+221\s?|0)?7[0-9]{8}$/;
+
+
+        /* Validation helper */
+        const invalid = (field,msg) => { alert(msg); field.focus(); };
+
+        /* Soumission */
+        form.addEventListener('submit', async e=>{
+            e.preventDefault();
+
+            const fd = new FormData(form);
+
+            /* Champ ↦ variable pour regex plus lisible */
+            const prenom  = fd.get('prenom').trim();
+            const nom     = fd.get('nom').trim();
+            const tel     = fd.get('telephone').trim();
+            const prog    = fd.get('programme').trim();
+
+            /* Vérifs */
+            if (!nameRE.test(prenom)) return invalid(form.prenom, 'Prénom invalide.');
+            if (!nameRE.test(nom))    return invalid(form.nom,    'Nom invalide.');
+            if (!telRE.test(tel))     return invalid(form.telephone,'Téléphone invalide.');
+            if (prog.length < 10)     return invalid(form.programme,'Programme : 10 caractères min.');
+            if (!filesI.files.length) return invalid(filesI,'Ajoutez au moins un document.');
+
+            try{
+                const r = await fetch(
+                    'https://us-central1-performics-92bb0.cloudfunctions.net/candidature',
+                    { method:'POST', body:fd }
+                );
+                if(r.ok){
+                    form.reset();
+                    document.getElementById('fileList').textContent='Aucun fichier sélectionné';
+                    openM();            // ✅ modale succès
+                }else{
+                    alert('Erreur : '+await r.text());
+                }
+            }catch(err){
+                console.error(err);
+                alert('Envoi impossible.');
+            }
+        });
+    </script>
+
+
 
 
 
