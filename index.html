@@ -540,20 +540,20 @@
                                             <a href="index.html">Accueil</a>
                                         </li>
                                         <li class="menu-item menu-item-has-children kingster-mega-menu">
-                                            <a href="#" class="sf-with-ul-pre">Formations</a>
+                                            <a href="#" class="sf-with-ul-pre">Programmes</a>
                                             <div class="sf-mega sf-mega-full">
                                                 <ul class="sub-menu">
                                                     <li class="menu-item menu-item-has-children" data-size="30">
                                                         <span class="school-title">Business School</span>
                                                         <ul class="sub-menu">
                                                             <li class="menu-item">
-                                                                <span class="cycle-title">Premier Cycle</span>
+                                                                <span class="cycle-title">Licence</span>
                                                                 <ul class="sub-menu">
                                                                     <li class="menu-item"><a href="bachelor-of-science-in-business-administration.html">GESTION DES ENTREPRISES</a></li>
                                                                 </ul>
                                                             </li>
                                                             <li class="menu-item">
-                                                                <span class="cycle-title second-cycle">Second Cycle</span>
+                                                                <span class="cycle-title second-cycle">Master</span>
                                                                 <ul class="sub-menu">
                                                                     <li class="menu-item"><a href="hospitality-management.html">Master of Science (MSc) in Management (Options)</a></li>
                                                                 </ul>
@@ -566,13 +566,13 @@
                                                             <li class="menu-item">
                                                                 <span class="cycle-title">Premier Cycle</span>
                                                                 <ul class="sub-menu">
-                                                                    <li class="menu-item"><a href="school-of-law.html">INFORMATIQUE</a></li>
-                                                                    <li class="menu-item"><a href="engineering.html">GEOMATIQUE</a></li>
-                                                                    <li class="menu-item"><a href="medicine.html">ELECTROMECANIQUE</a></li>
+                                                                    <li class="menu-item"><a href="school-of-law.html">Informatique</a></li>
+                                                                    <li class="menu-item"><a href="engineering.html">Géomatique</a></li>
+                                                                    <li class="menu-item"><a href="medicine.html">Electromécanique</a></li>
                                                                 </ul>
                                                             </li>
                                                             <li class="menu-item">
-                                                                <span class="cycle-title second-cycle">Second Cycle</span>
+                                                                <span class="cycle-title second-cycle">Cycle Ingégnieur </span>
                                                                 <ul class="sub-menu">
                                                                     <li class="menu-item"><a href="#">Master en Ingénierie (Options)</a></li>
                                                                 </ul>
@@ -583,7 +583,7 @@
                                                         <div class="kingster-mega-menu-section-content">
                                                             <img src="./images/Performics/logo-removebg-preview.png" style="max-width: 180px; margin: 10px auto; display: block;" alt="Logo" />
                                                             <div style="text-align: center; margin-top: 15px;">
-                                                                <a href="contact.html" style="display: inline-block; padding: 8px 20px; background: darkorange; color: white; border-radius: 4px; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Contactez-nous</a>
+                                                                <a href="./index.html#nousEcrire" style="display: inline-block; padding: 8px 20px; background: darkorange; color: white; border-radius: 4px; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Contactez-nous</a>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -680,8 +680,64 @@
         z-index: 1;
     "></div>
 
+                                                        <!-- Définition de l’animation CSS (à placer dans l’en-tête de votre page ou dans un <style> au début du slide) -->
+                                                        <style>
+                                                            @keyframes ringPulse {
+                                                                0%, 100% {
+                                                                    transform: scale(1);
+                                                                    box-shadow: 0 0 6px rgba(255,255,255,0.4);
+                                                                    opacity: 0.6;
+                                                                }
+                                                                50% {
+                                                                    transform: scale(1.1);
+                                                                    box-shadow: 0 0 20px rgba(255,255,255,0.9);
+                                                                    opacity: 1;
+                                                                }
+                                                            }
+                                                        </style>
 
-                                                        <!--                        -->
+                                                        <!-- Cercle lumineux animé -->
+                                                        <rs-layer
+                                                                id="slider-1-slide-1-layer-circle"
+                                                                data-type="shape"
+                                                                data-rsp_ch="off"
+                                                                data-xy="x:c;y:m;yo:-200px,-180px,-150px,-100px;"
+                                                                data-dim="w:350px,300px,250px,200px;h:350px,300px,250px,200px;"
+                                                                data-frame_1="st:200;sp:1200;e:Power3.easeOut;opi:0;"
+                                                                data-frame_999="o:0;st:w;"
+                                                                style="
+    z-index: 10;
+    border: 10px solid darkorange;
+    border-radius: 50%;
+    box-shadow: 0 0 6px yellow;
+    opacity: 0.6;
+    animation: ringPulse 3s infinite ease-in-out;
+  "
+                                                        ></rs-layer>
+
+                                                        <!-- Logo Performics -->
+                                                        <rs-layer
+                                                                id="slider-1-slide-1-layer-logo"
+                                                                data-type="image"
+                                                                data-rsp_ch="off"
+                                                                data-xy="x:c;y:m;yo:-200px,-180px,-150px,-100px;"
+                                                                data-dim="w:300px,250px,200px,150px;h:auto;"
+                                                                data-frame_1="st:300;sp:800;e:Power3.easeOut;opi:0;scl:0.5,0.5;"
+                                                                data-frame_999="o:0;st:w;"
+                                                                style="z-index: 11;"
+                                                        >
+                                                            <img
+                                                                    src="./images/Performics/logo-removebg-preview.png"
+                                                                    alt="Logo Performics"
+                                                                    style="display:block; width:100%; height:auto;"
+                                                            />
+                                                        </rs-layer>
+
+
+
+
+
+                                                        <!--      TITRE "PERFORMICS SCHOOL"                  -->
                                                         <rs-layer
                                                                 id="slider-1-slide-1-layer-3"
                                                                 data-type="text"
@@ -695,15 +751,10 @@
         font-family: 'Arial Black', Gadget, sans-serif;
         font-weight: 900;
         text-transform: uppercase;
-        background: linear-gradient(45deg, #ff8c00, #ffd500, #ff8c00);
+        background: linear-gradient(45deg, #ff8c00, darkorange, #ff8c00);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        text-shadow:
-            0 0 10px rgba(255, 200, 0, 0.8),
-            0 0 20px rgba(255, 165, 0, 0.6),
-            0 0 30px rgba(255, 140, 0, 0.4);
-        filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.7));
-        animation: textGlow 2s ease-in-out infinite alternate;
+
     ">
                                                             Performics School
                                                         </rs-layer>
@@ -731,19 +782,28 @@
 
                                                         <!--                        -->
                                                         <rs-layer
-                                                            id="slider-1-slide-1-layer-9"
-                                                            class="jost-font"
-                                                            data-type="text"
-                                                            data-rsp_ch="off"
-                                                            data-xy="x:c;xo:16px,16px,16px,0;yo:687px,687px,687px,198px;"
-
-                                                            data-dim="w:505px,505px,505px,358px;h:40px,40px,40px,auto;"
-                                                            data-frame_1="st:620;sR:620;"
-                                                            data-frame_999="o:0;st:w;sR:8080;"
-                                                            style="z-index: 9; font-family: Jost; color: darkorange;"
+                                                                id="slider-1-slide-1-layer-9"
+                                                                class="jost-font"
+                                                                data-type="text"
+                                                                data-rsp_ch="off"
+                                                                data-xy="x:c;xo:0;y:b;yo:100px,100px,100px,50px;"
+                                                                data-text="w:600;s:24,24,24,16;l:36,36,36,24;ls:1px;ta:center;"
+                                                                data-frame_1="st:700;sp:1000;e:Power4.easeOut;"
+                                                                data-frame_999="o:0;st:w;sR:8000;"
+                                                                style="
+    z-index: 9;
+    font-family: 'Jost', sans-serif;
+    color: #ffffff;
+    background: darkorange;
+    padding: 12px 24px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  "
                                                         >
-                                                            Notre objectif est de créer une école extraordinaire
+                                                            Notre objectif est de créer une école <strong>extraordinaire</strong>
                                                         </rs-layer>
+
                                                         <!--                        -->
 
                                                         <!--                        -->
@@ -814,9 +874,13 @@
                                 <!-- Message -->
                                 <div class="speech-bubble">
                                     <div class="speech-content">
-                                        <p class="animate-text">Performics School of Business & Technology s'est donnée pour mission de former des leaders et des managers capables d'impulser le changement dans les organisations, tant au niveau local qu'international.</p>
+                                        <p class="animate-text">Performics School of Business & Technology s’est donnée pour mission de former des leaders et des managers capables d’impulser le changement dans les organisations, tant au niveau local qu’international. Dans un environnement en constante évolution, nous croyons fermement que la transformation durable des sociétés africaines passe par une formation de qualité, ancrée dans l’excellence académique et l’engagement citoyen.
+                                        </p>
 
-                                        <p class="animate-text">Dans un environnement en constante évolution, nous croyons fermement que la transformation durable des sociétés africaines passe par une formation de qualité, ancrée dans l'excellence académique et l'engagement citoyen.</p>
+                                        <p class="animate-text">Notre vision est ambitieuse : faire de Performics une école de premier rang en Afrique, reconnue pour la pertinence de ses programmes, la compétence de son corps professoral, et l’impact concret de ses diplômés dans les sphères économiques, sociales et technologiques.
+                                        </p>
+
+                                        <p>Nous nous appuyons sur trois valeurs fondatrices qui structurent notre projet éducatif et institutionnel :</p>
 
                                             <ul>
                                                 <li><b>Learn: </b>Apprendre avec rigueur, curiosité et ouverture</li>
@@ -1277,7 +1341,7 @@
                                             <div class="campus-icon">
                                                 <i class="fas fa-university" style="color: darkorange;"></i>
                                             </div>
-                                            <h2>Visite spéciale du campus Performics</h2>
+                                            <h2 style="font-family: 'Arial Black';">Visite spéciale du campus Performics</h2>
                                             <div class="content-divider"></div>
                                             <p>
                                                 Découvrez Performics à travers une visite guidée réservée aux futurs étudiants et professionnels. Vous explorerez nos infrastructures, nos installations et la vie étudiante à Thiès. Rencontrez notre équipe des admissions pour en savoir plus sur nos programmes et choisir celui qui vous correspond le mieux.
@@ -1518,7 +1582,7 @@
                             <!-- Partie Texte -->
                             <div class="vision-content">
                                 <span class="section-subtitle">L'avenir de l'éducation en Afrique</span>
-                                <h2 class="section-title">
+                                <h2 class="section-title" style="font-family: 'Arial Black';">
                                     <span>L'excellence académique</span>
                                     <span>au service du développement</span>
                                 </h2>
@@ -2264,7 +2328,34 @@
                     </div>
                 </div>
 
-                <!-- Contact Form Section -->
+
+
+            <!-- ✅ Modale Performics -->
+            <div id="contactModal" class="pf-modal" role="dialog" aria-modal="true" aria-labelledby="pf-title">
+                <div class="pf-modal-content">
+                    <!-- cercle check animé -->
+                    <span class="pf-check">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+
+                    <h3 class="pf-title" id="pf-title">Merci&nbsp;!</h3>
+                    <p class="pf-text">
+                        Votre message a bien été enregistré.<br>
+                        Nous vous répondrons très vite.
+                    </p>
+
+                    <button class="pf-btn" type="button">OK</button>
+                    <button class="pf-close" aria-label="Fermer">&times;</button>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- Contact Form Section -->
                 <div class="contact-form-section" style="background-color: #f3f3f3; padding: 100px 0;">
                     <div class="form-container">
                         <div class="section-header">
@@ -2300,6 +2391,119 @@
                 </div>
 
                 <style>
+
+
+                    /* ============ MODALE Performics ============ */
+                    .pf-modal {
+                        position: fixed;
+                        inset: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: rgba(0, 0, 0, 0.55);
+                        opacity: 0;
+                        pointer-events: none;
+                        transition: opacity 0.35s ease;
+                        z-index: 9999;
+                    }
+
+                    .pf-modal.show {
+                        opacity: 1;
+                        pointer-events: all;
+                    }
+
+                    /* boîte */
+                    .pf-modal-content {
+                        --radius: 14px;
+                        background: #ffffff;
+                        border-radius: var(--radius);
+                        max-width: 440px;
+                        width: 90%;
+                        padding: 48px 40px 40px;
+                        text-align: center;
+                        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+                        position: relative;
+                        animation: pop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+                    }
+
+                    /* petite animation d’apparition */
+                    @keyframes pop {
+                        0%   { transform: scale(0.8); opacity: 0; }
+                        100% { transform: scale(1);   opacity: 1; }
+                    }
+
+                    /* cercle icône */
+                    .pf-check {
+                        --size: 80px;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: var(--size);
+                        height: var(--size);
+                        margin: -90px auto 16px;
+                        background: #ff8c00;
+                        border-radius: 50%;
+                        color: #fff;
+                        box-shadow: 0 0 0 6px #fff, 0 0 16px rgba(0,0,0,0.2);
+                        animation: pulse 1.8s ease-out infinite;
+                    }
+
+                    @keyframes pulse {
+                        0%, 100% { transform: scale(1); }
+                        50%      { transform: scale(1.08); }
+                    }
+
+                    .pf-title {
+                        font-family: "Arial Black", sans-serif;
+                        font-size: 1.7rem;
+                        margin-bottom: 0.35em;
+                        color: #ff8c00;
+                    }
+
+                    .pf-text {
+                        color: #555;
+                        line-height: 1.6;
+                        margin-bottom: 32px;
+                    }
+
+                    /* bouton OK */
+                    .pf-btn {
+                        background: #ff8c00;
+                        color: #fff;
+                        border: none;
+                        padding: 12px 32px;
+                        font-size: 1rem;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        transition: transform 0.25s ease, box-shadow 0.25s ease;
+                    }
+
+                    .pf-btn:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 8px 20px rgba(255, 140, 0, 0.35);
+                    }
+
+                    /* croix */
+                    .pf-close {
+                        position: absolute;
+                        top: 14px;
+                        right: 18px;
+                        background: none;
+                        border: none;
+                        font-size: 1.8rem;
+                        color: #888;
+                        cursor: pointer;
+                        transition: transform 0.25s ease;
+                    }
+
+                    .pf-close:hover { transform: rotate(90deg); }
+
+                    @media (max-width: 480px) {
+                        .pf-modal-content { padding: 40px 28px 32px; }
+                        .pf-title        { font-size: 1.5rem; }
+                    }
+
+
                     /* Contact Info Section */
                     .contact-info-section {
                         color: white;
@@ -3102,6 +3306,77 @@
 
         </div>
     </div>
+
+
+    <script>
+        /* ── Sélecteurs ─────────────────────────────────────────────── */
+        const form     = document.querySelector('.performics-form');
+        const modal    = document.getElementById('contactModal');
+        const okBtn    = modal.querySelector('.pf-btn');
+        const closeBtn = modal.querySelector('.pf-close');
+
+        /* ── Ouverture/Fermeture modale ─────────────────────────────── */
+        const openModal  = () => modal.classList.add('show');
+        const closeModal = () => modal.classList.remove('show');
+
+        okBtn  .addEventListener('click', closeModal);
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+        /* ── Regex & helpers ────────────────────────────────────────── */
+        const nameRE = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]{2,40}$/;   // Lettres, espaces, tirets, apostrophes (2–40)
+
+        /* Affiche un message d’alerte et remet le focus sur le champ fautif */
+        function invalid(field, message) {
+            alert(message);
+            field.focus();
+        }
+
+        /* ── Soumission du formulaire ───────────────────────────────── */
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            /* Récupération et trim des champs */
+            const name    = form.name.value.trim();
+            const email   = form.email.value.trim();
+            const message = form.message.value.trim();
+
+            /* Vérifications */
+            if (!nameRE.test(name)) {
+                return invalid(form.name, 'Nom invalide : 2 à 40 lettres, espaces, tirets ou apostrophes.');
+            }
+            if (message.length < 10) {
+                return invalid(form.message, 'Le message doit contenir au moins 10 caractères.');
+            }
+            if (/[<>]/.test(message)) {
+                return invalid(form.message, 'Le message ne peut pas contenir les caractères < ou >.');
+            }
+
+            /* Envoi au backend */
+            const data = { name, email, message };
+
+            try {
+                const r = await fetch(
+                    'https://us-central1-performics-92bb0.cloudfunctions.net/contact',
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data),
+                    }
+                );
+
+                if (r.ok) {
+                    form.reset();
+                    openModal();                // ✅ Modale de succès
+                } else {
+                    alert('Erreur : ' + (await r.text()));
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Impossible d’envoyer le message.');
+            }
+        });
+    </script>
 
 
 
