@@ -1204,7 +1204,7 @@
 
 
 
-        <footer class="performics-footer" >
+        <footer class="performics-footer">
             <!-- Section principale du footer -->
             <div class="footer-main">
                 <div class="footer-container">
@@ -1226,12 +1226,10 @@
 
                     <!-- Colonne Notre Campus -->
                     <div class="footer-col">
-                        <h3 style="font-family: Arial Black; color: darkorange; " class="footer-title">Notre Campus</h3>
+                        <h3 style="font-family: 'Arial Black'; color: darkorange; " class="footer-title">Notre Campus</h3>
                         <ul class="footer-links">
-                            <li><a href="./bachelor-of-science-in-business-administration.html">Académique</a></li>
-                            <li><a href="#">Infrastructures</a></li>
-                            <li><a href="#">Galerie</a></li>
-                            <li><a href="#">Visite Virtuelle</a></li>
+                            <li><a href="./bachelor-of-science-in-business-administration.html">Programmes</a></li>
+
                         </ul>
                     </div>
 
@@ -1243,6 +1241,7 @@
                             <li><a href="school-of-law.html">Licence en Informatique</a></li>
                             <li><a href="engineering.html">Licence Géomatique</a></li>
                             <li><a href="medicine.html">Licence Electromécanique</a></li>
+                            <li><a href="finance.html">Licence Génie Civil</a></li>
                         </ul>
                     </div>
 
@@ -1251,9 +1250,9 @@
                         <h3 style="font-family: 'Arial Black'; color: darkorange;" class="footer-title">Vie Étudiante</h3>
                         <ul class="footer-links">
                             <li><a href="./athletics.html">Vie Associative</a></li>
-                            <li><a href="#">Événements</a></li>
-                            <li><a href="#">Clubs Étudiants</a></li>
-                            <li><a href="#">Témoignages</a></li>
+
+                            <li><a href="./athletics.html">Clubs Étudiants</a></li>
+
                         </ul>
                     </div>
 
@@ -1275,10 +1274,7 @@
                 </div>
             </div>
 
-            <!-- Bouton Retour en haut -->
-            <div class="back-to-top">
-                <a href="#top" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></a>
-            </div>
+
         </footer>
 
         <style>
@@ -1579,49 +1575,7 @@
             }
         </style>
 
-        <script>
-            // Back to Top Button
-            document.addEventListener('DOMContentLoaded', function() {
-                const backToTop = document.querySelector('.back-to-top a');
 
-                window.addEventListener('scroll', function() {
-                    if (window.pageYOffset > 300) {
-                        backToTop.classList.add('active');
-                    } else {
-                        backToTop.classList.remove('active');
-                    }
-                });
-
-                backToTop.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-
-                // Animation des éléments au défilement
-                const footerCols = document.querySelectorAll('.footer-col');
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach((entry, index) => {
-                        if (entry.isIntersecting) {
-                            setTimeout(() => {
-                                entry.target.style.opacity = '1';
-                                entry.target.style.transform = 'translateY(0)';
-                            }, index * 100);
-                        }
-                    });
-                }, { threshold: 0.1 });
-
-                footerCols.forEach(col => {
-                    col.style.opacity = '0';
-                    col.style.transform = 'translateY(20px)';
-                    col.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                    observer.observe(col);
-                });
-            });
-        </script>
     </div>
 </div>
 
