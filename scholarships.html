@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Kingster &#8211; College &#8211; HTML Template</title>
+    <title>Performics - Career Service</title>
 
     <link rel="stylesheet" href="css/common-skeleton.min.css?" type="text/css" media="all" />
     <link rel="stylesheet" href="css/tooltip.min.css" type="text/css" media="all" />
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="plugins/revslider/public/assets/css/rs6.css" type="text/css" media="all" />
     <link rel="stylesheet" href="css/style-core.css" type="text/css" media="all" />
     <link rel="stylesheet" href="css/kingster-style-custom.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link
         rel="stylesheet"
@@ -26,15 +27,936 @@
     />
     <link href="https://fonts.googleapis.com/css?family=Poppins:400%2C700%7CRoboto:400" rel="stylesheet" property="stylesheet" media="all" type="text/css" />
 
+    <style>
+        :root {
+            --primary: darkorange;
+            --primary-light: rgba(255, 140, 0, 0.1);
+            --secondary: #333;
+            --light: white;
+            --gray: #f8f9fa;
+            --dark-gray: #6c757d;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--light);
+            color: var(--secondary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background Animation */
+        .bg-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 25s infinite linear;
+        }
+
+        .shape-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--primary);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 700px;
+            height: 700px;
+            background: #ff9e42;
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+            animation-direction: reverse;
+        }
+
+        .shape-3 {
+            width: 300px;
+            height: 300px;
+            background: #ffb76b;
+            top: 50%;
+            left: 30%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(50px, 100px) rotate(90deg);
+            }
+            50% {
+                transform: translate(100px, 0) rotate(180deg);
+            }
+            75% {
+                transform: translate(50px, -100px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        .career-service {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+            margin-bottom: 120px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            background: linear-gradient(90deg, var(--primary), #ff8c00, #ff9e42);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 8s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: var(--secondary);
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover:before {
+            left: 100%;
+        }
+
+        .cta-button i {
+            margin-left: 10px;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        .hero-image-container {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 700px;
+            perspective: 1000px;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.1);
+            transform: rotateY(-15deg) rotateX(5deg);
+            transition: var(--transition);
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 0.5s;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .hero-image:hover {
+            transform: rotateY(-5deg) rotateX(2deg);
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), #ff9e42);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Mission Grid */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 120px;
+        }
+
+        .mission-card {
+            background-color: var(--light);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(0,0,0,0.03);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: cardEnter 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .mission-card:nth-child(1) { animation-delay: 0.1s; }
+        .mission-card:nth-child(2) { animation-delay: 0.2s; }
+        .mission-card:nth-child(3) { animation-delay: 0.3s; }
+        .mission-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes cardEnter {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .mission-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,140,0,0.03) 0%, rgba(255,140,0,0) 100%);
+            z-index: -1;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .mission-card-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), #ff9e42);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px auto 30px;
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
+            transform: rotate(0deg);
+            transition: var(--transition);
+        }
+
+        .mission-card:hover .mission-card-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .mission-card-content {
+            padding: 0 40px 50px;
+            text-align: center;
+        }
+
+        .mission-card-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .mission-card-content p {
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .mission-card-content ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 25px;
+        }
+
+        .mission-card-content li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 35px;
+            font-size: 1rem;
+        }
+
+        .mission-card-content li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Image Showcase */
+        .image-showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 120px 0;
+        }
+
+        .showcase-item {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 400px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: scale(0.95);
+            transition: var(--transition);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .showcase-item:nth-child(1) { animation-delay: 0.2s; }
+        .showcase-item:nth-child(2) { animation-delay: 0.4s; }
+        .showcase-item:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .showcase-item:hover {
+            transform: scale(1.02) !important;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .showcase-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .showcase-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 30px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .showcase-item:hover .showcase-caption {
+            transform: translateY(0);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 100px 0;
+            margin: 120px 0;
+            position: relative;
+            background-color: var(--gray);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .stats-bg-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.05;
+            background-image: radial-gradient(var(--primary) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: patternMove 100s linear infinite;
+        }
+
+        @keyframes patternMove {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: var(--secondary);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--primary), #ff9e42);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+        }
+
+        /* Timeline */
+        .timeline-section {
+            position: relative;
+            padding: 100px 0;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding-top: 50px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), #ff9e42);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 4px;
+        }
+
+        .timeline-item {
+            padding: 30px 0;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 100px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 100px;
+        }
+
+        .timeline-dot {
+            width: 30px;
+            height: 30px;
+            background-color: var(--light);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+            z-index: 1;
+            box-shadow: 0 0 0 8px rgba(255, 140, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -17px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -17px;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 12px rgba(255, 140, 0, 0.3);
+        }
+
+        .timeline-content {
+            padding: 40px;
+            background-color: var(--light);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .timeline-item:hover .timeline-content {
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .timeline-image {
+            width: 100%;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover .timeline-image {
+            transform: scale(1.02);
+        }
+
+        /* Testimonial */
+        .testimonial-section {
+            background-color: var(--light);
+            padding: 100px 20px;
+            margin: 120px 0;
+            text-align: center;
+            position: relative;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .testimonial-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, rgba(255,140,0,0.03) 0%, rgba(255,140,0,0) 100%);
+            z-index: -1;
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-size: 1.6rem;
+            font-style: italic;
+            margin-bottom: 40px;
+            position: relative;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .testimonial-text:before,
+        .testimonial-text:after {
+            content: '"';
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-text:before {
+            top: -30px;
+            left: -40px;
+        }
+
+        .testimonial-text:after {
+            bottom: -70px;
+            right: -40px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .testimonial-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-info .name {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .author-info .role {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #ff7b00 100%);
+            padding: 100px 20px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin-top: 120px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(255, 140, 0, 0.3);
+        }
+
+        .cta-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            animation: floatParticle 15s infinite linear;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-500px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .white-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: white;
+            color: var(--primary);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .white-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .white-button:hover:before {
+            left: 100%;
+        }
+
+        .white-button i {
+            margin-left: 10px;
+            transition: var(--transition);
+        }
+
+        .white-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 1200px) {
+            .hero-content h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero-image-container {
+                width: 45%;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .hero-section {
+                flex-direction: column;
+                min-height: auto;
+                padding-top: 100px;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 50px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-image-container {
+                position: relative;
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+                right: auto;
+                top: auto;
+                transform: none;
+            }
+
+            .image-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline-line {
+                left: 40px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 0;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+                padding-right: 0;
+                padding-left: 80px;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 28px;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .image-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .testimonial-text {
+                font-size: 1.3rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .mission-card-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .mission-card-content {
+                padding: 0 20px 30px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .testimonial-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .author-info {
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body class="home page-template-default page page-id-6208 gdlr-core-body tribe-no-js kingster-body kingster-body-front kingster-full kingster-with-sticky-navigation kingster-sticky-navigation-no-logo kingster-blockquote-style-1 gdlr-core-link-to-lightbox" >
     <div class="kingster-mobile-header-wrap">
-        <div class="kingster-mobile-header kingster-header-background kingster-style-slide kingster-sticky-mobile-navigation" id="kingster-mobile-header">
+        <div class="kingster-mobile-header kingster-header-background kingster-style-slide kingster-sticky-mobile-navigation" id="kingster-mobile-header" style="background-color: darkorange;">
             <div class="kingster-mobile-header-container kingster-container clearfix">
                 <div class="kingster-logo kingster-item-pdlr kingster-mobile-logo-center">
                     <div class="kingster-logo-inner">
-                        <a class="" href="index.html"><img src="upload/logo-HP.png" alt="" width="200" height="200" title="logo HP" /></a>
+                        <a class="" href="index.html"><img src="./images/Performics/logo-removebg-preview.png" alt="" width="200" height="200" title="logo HP" /></a>
                     </div>
                 </div>
                 <div class="kingster-mobile-menu-right">
@@ -55,137 +977,307 @@
                         </div>
                     </div>
                 </div>
-                <div class="kingster-mobile-menu-left">
-                    <div class="kingster-mobile-menu">
-                        <a class="kingster-mm-menu-button kingster-mobile-menu-button kingster-mobile-button-hamburger" href="#kingster-mobile-menu"><span></span></a>
-                        <div class="kingster-mm-menu-wrap kingster-navigation-font" id="kingster-mobile-menu" data-slide="right">
-                            <ul id="menu-main-navigation" class="m-menu">
-                                <li class="menu-itemmenu-item-home current-menu-item page_item page-item-6208 current_page_item ">
-                                    <a href="index.html" aria-current="page">Home</a>
-                                </li>
-                                <li class="menu-item menu-item-has-children ">
-                                    <a href="#">Pages</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item"><a href="about-us.html">About KU</a></li>
-                                        <li class="menu-item"><a href="contact.html">Contact</a></li>
-                                        <li class="menu-itemmenu-item-has-children ">
-                                            <a href="portfolio-3-columns.html">Portfolio</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item menu-item-has-children ">
-                                                    <a>Portfolio Grid</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="portfolio-2-columns.html">Portfolio 2 Columns</a></li>
-                                                        <li class="menu-item"><a href="portfolio-3-columns.html">Portfolio 3 Columns</a></li>
-                                                        <li class="menu-item"><a href="portfolio-4-columns.html">Portfolio 4 Columns</a></li>
-                                                        <li class="menu-item"><a href="portfolio-5-columns.html">Portfolio 5 Columns</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item menu-item-has-children ">
-                                                    <a>Portfolio Masonry</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="portfolio-masonry-4-columns.html">Masonry 4 Columns</a></li>
-                                                        <li class="menu-item"><a href="portfolio-masonry-3-columns.html">Masonry 3 Columns</a></li>
-                                                        <li class="menu-item"><a href="portfolio-masonry-2-columns.html">Masonry 2 Columns</a></li>
-                                                    </ul>
-                                                </li>
-
-                                                <li class="menu-item menu-item-has-children ">
-                                                    <a>Portfolio Side Thumbnail</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="portfolio-left-large-thumbnail.html">Portfolio Left Large Thumbnail</a></li>
-                                                        <li class="menu-item"><a href="portfolio-right-large-thumbnail.html">Portfolio Right Large Thumbnail</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item"><a href="gallery.html">Gallery</a></li>
-                                        <li class="menu-item"><a href="price-table.html">Price Table</a></li>
-                                        <li class="menu-item"><a href="maintenance.html">Maintenance</a></li>
-                                        <li class="menu-item"><a href="coming-soon.html">Coming Soon</a></li>
-                                        <li class="menu-item "><a href="404.html">404 Page</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-itemmenu-item-has-children ">
-                                    <a href="bachelor-of-science-in-business-administration.html">Academics</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item menu-item-has-children ">
-                                            <a>Undergraduate</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item"><a href="bachelor-of-science-in-business-administration.html">Business Administration</a></li>
-                                                <li class="menu-item"><a href="school-of-law.html">School Of Law</a></li>
-                                                <li class="menu-item"><a href="engineering.html">Engineering</a></li>
-                                                <li class="menu-item"><a href="medicine.html">Medicine</a></li>
-                                                <li class="menu-item"><a href="art-science.html">Art &#038; Science</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item menu-item-has-children ">
-                                            <a href="#">Graduate Program</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item"><a href="hospitality-management.html">Hospitality Management</a></li>
-                                                <li class="menu-item"><a href="physics.html">Physics</a></li>
-                                                <li class="menu-item "><a href="#">Chemistry</a></li>
-                                                <li class="menu-item "><a href="#">Computer Science</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item menu-item-has-children ">
-                                            <a href="#">Resources</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item"><a href="bachelor-of-science-in-business-administration.html">Department Page</a></li>
-                                                <li class="menu-item"><a href="finance.html">Major Page</a></li>
-                                                <li class="menu-item">
-                                                    <a href="finance-faculty.html">Faculty Page</a>
-                                                </li>
-                                                <li class="menu-item "><a href="introduction-to-financial-accounting.html">Single Course</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item "><a href="#">Logo</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-itemmenu-item-has-children ">
-                                    <a href="apply-to-kingster.html">Admissions</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item"><a href="apply-to-kingster.html">Apply To Kingster</a></li>
-                                        <li class="menu-item"><a href="campus-tour.html">Campus Tour</a></li>
-                                        <li class="menu-item"><a href="scholarships.html">Scholarships</a></li>
-                                        <li class="menu-item"><a href="athletics.html">Athletics</a></li>
-                                        <li class="menu-item"><a href="give-to-kingster.html">Give To Kingster</a></li>
-                                        <li class="menu-item"><a href="alumni.html">Alumni</a></li>
-                                        <li class="menu-item"><a href="event-calendar.html">Event Calendar</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item menu-item-has-children ">
-                                    <a href="#">Courses</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item"><a href="course-list-1.html">Course List 1</a></li>
-                                        <li class="menu-item"><a href="course-list-2.html">Course List 2</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item"><a href="athletics.html">Athletics</a></li>
-                                <li class="menu-item"><a href="university-life.html">University Life</a></li>
-                                <li class="menu-itemmenu-item-has-children ">
-                                    <a href="blog-full-right-sidebar-with-frame.html">Blog</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item menu-item-has-children"><a href="blog-full-right-sidebar.html">Blog Full</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item"><a href="blog-full-right-sidebar.html">Blog Full Right Sidebar</a></li>
-                                                <li class="menu-item"><a href="blog-full-left-sidebar.html">Blog Full Left Sidebar</a></li>
-                                                <li class="menu-item"><a href="blog-full-both-sidebar.html">Blog Full Both Sidebar</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item menu-item-has-children"><a href="blog-grid-3-columns-no-space.html">Blog Grid</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
-                                                <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
-                                                <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item"><a href="standard-post-type.html">Single Post</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                <!-- Menu Mobile Premium -->
+                <div class="performics-mobile-menu">
+                    <!-- Bouton hamburger amélioré -->
+                    <div class="menu-toggle" style="background-color: darkorange; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center;">
+                        <div class="hamburger" style="width: 26px; height: 2px; background: white; position: relative; transition: all 0.3s ease;">
+                            <span style="position: absolute; width: 100%; height: 100%; background: white; top: -8px; left: 0; transition: all 0.3s ease;"></span>
+                            <span style="position: absolute; width: 100%; height: 100%; background: white; top: 8px; left: 0; transition: all 0.3s ease;"></span>
                         </div>
                     </div>
+
+                    <!-- Menu déroulant premium -->
+                    <nav class="mobile-nav" style="background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%); box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: fixed; top: 0; left: -100%; width: 85%; max-width: 320px; height: 100vh; z-index: 1000; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); overflow-y: auto;">
+                        <!-- En-tête du menu -->
+                        <div class="mobile-header" style="background-color: darkorange; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+                            <div class="mobile-logo">
+                                <a href="index.html">
+                                    <img src="./images/Performics/logo-removebg-preview.png" alt="Logo Performics" style="max-width: 160px; filter: brightness(0) invert(1);">
+                                </a>
+                            </div>
+                            <button class="close-menu" style="background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">×</button>
+                        </div>
+
+                        <!-- Menu principal amélioré -->
+                        <ul class="mobile-menu" style="list-style: none; padding: 0; margin: 0;">
+                            <!-- Accueil -->
+                            <li style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="index.html" class="menu-link" style="display: block; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600; position: relative; transition: all 0.3s ease;">
+                                    <i class="fas fa-home" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Accueil
+                                    <span class="active-indicator" style="position: absolute; right: 20px; color: darkorange; font-weight: bold;">•</span>
+                                </a>
+                            </li>
+
+                            <!-- Formations -->
+                            <li class="menu-item-has-children" style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="#" class="menu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600;">
+                                    <span><i class="fas fa-graduation-cap" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Formations</span>
+                                    <i class="fas fa-chevron-down" style="color: #999; transition: transform 0.3s ease;"></i>
+                                </a>
+                                <ul class="sub-menu" style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.05);">
+                                    <!-- Business School -->
+                                    <li class="menu-item-has-children">
+                                        <a class="submenu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 25px 15px 60px; color: #555; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.03);">
+              <span style="position: relative;">
+                <span class="submenu-icon" style="position: absolute; left: -25px; color: darkorange;">→</span>
+                Business School
+              </span>
+                                            <i class="fas fa-chevron-down" style="color: #999; font-size: 0.8rem; transition: transform 0.3s ease;"></i>
+                                        </a>
+                                        <ul class="nested-sub-menu" style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.03);">
+                                            <!-- Premier Cycle -->
+                                            <li class="menu-item-has-children">
+                                                <a class="nested-submenu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 25px 12px 80px; color: #555; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.02);">
+                                                    LICENCE
+                                                    <i class="fas fa-chevron-down" style="color: #999; font-size: 0.8rem; transition: transform 0.3s ease;"></i>
+                                                </a>
+                                                <ul style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.02);">
+                                                    <li><a href="bachelor-of-science-in-business-administration.html" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">Gestion des Entreprises</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- Second Cycle -->
+                                            <li class="menu-item-has-children">
+                                                <a class="nested-submenu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 25px 12px 80px; color: #555; text-decoration: none;">
+                                                    MASTER
+                                                    <i class="fas fa-chevron-down" style="color: #999; font-size: 0.8rem; transition: transform 0.3s ease;"></i>
+                                                </a>
+                                                <ul style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.02);">
+                                                    <li><a href="hospitality-management.html" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">MSc in Management</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- École d'Ingénieur -->
+                                    <li class="menu-item-has-children">
+                                        <a class="submenu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 25px 15px 60px; color: #555; text-decoration: none;">
+              <span style="position: relative;">
+                <span class="submenu-icon" style="position: absolute; left: -25px; color: darkorange;">→</span>
+                École d'Ingénieur
+              </span>
+                                            <i class="fas fa-chevron-down" style="color: #999; font-size: 0.8rem; transition: transform 0.3s ease;"></i>
+                                        </a>
+                                        <ul class="nested-sub-menu" style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.03);">
+                                            <!-- Premier Cycle -->
+                                            <li class="menu-item-has-children">
+                                                <a class="nested-submenu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 25px 12px 80px; color: #555; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.02);">
+                                                    Premier Cycle
+                                                    <i class="fas fa-chevron-down" style="color: #999; font-size: 0.8rem; transition: transform 0.3s ease;"></i>
+                                                </a>
+                                                <ul style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.02);">
+                                                    <li><a href="school-of-law.html" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">Informatique</a></li>
+                                                    <li><a href="engineering.html" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">Géomatique</a></li>
+                                                    <li><a href="medicine.html" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">Électromécanique</a></li>
+                                                    <li><a href="finance.html" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">Génie Civil</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <!-- Second Cycle -->
+                                            <li class="menu-item-has-children">
+                                                <a class="nested-submenu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 25px 12px 80px; color: #555; text-decoration: none;">
+                                                    Cycle Ingénieur
+                                                    <i class="fas fa-chevron-down" style="color: #999; font-size: 0.8rem; transition: transform 0.3s ease;"></i>
+                                                </a>
+                                                <ul style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.02);">
+                                                    <li><a href="#" style="display: block; padding: 12px 25px 12px 100px; color: #555; text-decoration: none;">Master en Ingénierie</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- Admissions -->
+                            <li class="menu-item-has-children" style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="apply-to-kingster.html" class="menu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600;">
+                                    <span><i class="fas fa-file-signature" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Admissions</span>
+                                    <i class="fas fa-chevron-down" style="color: #999; transition: transform 0.3s ease;"></i>
+                                </a>
+                                <ul class="sub-menu" style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.05);">
+                                    <li><a href="apply-to-kingster.html#procedureCandidature" class="submenu-link" style="display: block; padding: 15px 25px 15px 60px; color: #555; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.03); position: relative;">
+                                        <span class="submenu-icon" style="position: absolute; left: 35px; color: darkorange;">→</span> Procédures
+                                    </a></li>
+                                    <li><a href="apply-to-kingster.html" class="submenu-link" style="display: block; padding: 15px 25px 15px 60px; color: #555; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.03); position: relative;">
+                                        <span class="submenu-icon" style="position: absolute; left: 35px; color: darkorange;">→</span> Candidature
+                                    </a></li>
+                                    <li><a href="apply-to-kingster.html#conditionsAdmissions" class="submenu-link" style="display: block; padding: 15px 25px 15px 60px; color: #555; text-decoration: none; position: relative;">
+                                        <span class="submenu-icon" style="position: absolute; left: 35px; color: darkorange;">→</span> Documents & Conditions
+                                    </a></li>
+                                </ul>
+                            </li>
+
+                            <!-- Vie Universitaire -->
+                            <li style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="athletics.html" class="menu-link" style="display: block; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600;">
+                                    <i class="fas fa-university" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Vie Étudiante
+                                </a>
+                            </li>
+
+                            <!-- Incubateur -->
+                            <li style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="university-life.html" class="menu-link" style="display: block; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600;">
+                                    <i class="fas fa-lightbulb" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Incubateur
+                                </a>
+                            </li>
+
+                            <!-- Career Service -->
+                            <li class="menu-item-has-children" style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="./scholarships.html" class="menu-link menu-toggle-sub" style="display: flex; justify-content: space-between; align-items: center; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600;">
+                                    <span><i class="fas fa-briefcase" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Career Service</span>
+                                    <i class="fas fa-chevron-down" style="color: #999; transition: transform 0.3s ease;"></i>
+                                </a>
+                                <ul class="sub-menu" style="display: none; list-style: none; padding: 0; margin: 0; background-color: rgba(255,140,0,0.05);">
+                                    <li><a href="#" class="submenu-link" style="display: block; padding: 15px 25px 15px 60px; color: #555; text-decoration: none; border-bottom: 1px solid rgba(0,0,0,0.03); position: relative;">
+                                        <span class="submenu-icon" style="position: absolute; left: 35px; color: darkorange;">→</span> Offres & Stage
+                                    </a></li>
+                                    <li><a href="#" class="submenu-link" style="display: block; padding: 15px 25px 15px 60px; color: #555; text-decoration: none; position: relative;">
+                                        <span class="submenu-icon" style="position: absolute; left: 35px; color: darkorange;">→</span> Ateliers & Coaching
+                                    </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!-- Pied de page du menu -->
+                        <div class="mobile-footer" style="padding: 20px; text-align: center; background-color: #f5f5f5; margin-top: auto;">
+                            <div class="social-links" style="margin-bottom: 15px;">
+                                <a href="https://www.facebook.com/profile.php?id=100086752777369" style="color: darkorange; margin: 0 10px; font-size: 1.2rem;"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://x.com/performics_s" style="color: darkorange; margin: 0 10px; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/in/performics-school-of-business-and-technology-743439269/" style="color: darkorange; margin: 0 10px; font-size: 1.2rem;"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.instagram.com/performicsschool/" style="color: darkorange; margin: 0 10px; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <p style="color: #777; font-size: 0.8rem; margin: 0;">© 2025 Performics Africa. Tous droits réservés.</p>
+                        </div>
+                    </nav>
+                    <div class="menu-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 999; display: none;"></div>
                 </div>
+
+                <style>
+                    /* Animation améliorée */
+                    .performics-mobile-menu.active .hamburger span:first-child {
+                        transform: rotate(45deg) translate(5px, 5px);
+                    }
+
+                    .performics-mobile-menu.active .hamburger span:last-child {
+                        transform: rotate(-45deg) translate(5px, -5px);
+                    }
+
+                    /* Effets de survol premium */
+                    .menu-link:hover, .submenu-link:hover, .nested-submenu-link:hover {
+                        background-color: rgba(255,140,0,0.08) !important;
+                        color: darkorange !important;
+                        padding-left: 30px !important;
+                    }
+
+                    .menu-link:hover .submenu-icon,
+                    .submenu-link:hover .submenu-icon,
+                    .nested-submenu-link:hover .submenu-icon {
+                        left: 30px !important;
+                    }
+
+                    /* Transition fluide */
+                    .mobile-nav.active {
+                        left: 0 !important;
+                    }
+
+                    .menu-overlay.active {
+                        display: block;
+                    }
+
+                    /* Indicateur de page active */
+                    .current-menu-item > .menu-link {
+                        color: darkorange !important;
+                        background-color: rgba(255,140,0,0.1) !important;
+                    }
+
+                    /* Rotation des icônes flèches */
+                    .menu-toggle-sub.active i.fa-chevron-down {
+                        transform: rotate(180deg) !important;
+                    }
+
+                    /* Scroll personnalisé */
+                    .mobile-nav::-webkit-scrollbar {
+                        width: 5px;
+                    }
+
+                    .mobile-nav::-webkit-scrollbar-thumb {
+                        background-color: darkorange;
+                        border-radius: 10px;
+                    }
+                </style>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Éléments du DOM
+                        const mobileMenu = document.querySelector('.performics-mobile-menu');
+                        const menuToggle = mobileMenu.querySelector('.menu-toggle');
+                        const closeBtn = mobileMenu.querySelector('.close-menu');
+                        const mobileNav = mobileMenu.querySelector('.mobile-nav');
+                        const menuOverlay = mobileMenu.querySelector('.menu-overlay');
+                        const subMenuToggles = mobileMenu.querySelectorAll('.menu-toggle-sub');
+
+                        // Ouvrir le menu
+                        menuToggle.addEventListener('click', function() {
+                            mobileMenu.classList.add('active');
+                            mobileNav.classList.add('active');
+                            menuOverlay.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                        });
+
+                        // Fermer le menu
+                        function closeMenu() {
+                            mobileMenu.classList.remove('active');
+                            mobileNav.classList.remove('active');
+                            menuOverlay.classList.remove('active');
+                            document.body.style.overflow = '';
+                        }
+
+                        closeBtn.addEventListener('click', closeMenu);
+                        menuOverlay.addEventListener('click', closeMenu);
+
+                        // Gestion des sous-menus
+                        subMenuToggles.forEach(toggle => {
+                            toggle.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                const parentItem = this.parentElement;
+                                const subMenu = this.nextElementSibling;
+                                const chevron = this.querySelector('i.fa-chevron-down');
+
+                                // Fermer les autres sous-menus au même niveau
+                                if (parentItem.parentElement.classList.contains('mobile-menu')) {
+                                    const allSubMenus = parentItem.parentElement.querySelectorAll('.sub-menu');
+                                    allSubMenus.forEach(menu => {
+                                        if (menu !== subMenu) {
+                                            menu.style.display = 'none';
+                                            menu.previousElementSibling.classList.remove('active');
+                                            menu.previousElementSibling.querySelector('i.fa-chevron-down').style.transform = '';
+                                        }
+                                    });
+                                }
+
+                                // Basculer le sous-menu actuel
+                                if (subMenu.style.display === 'block') {
+                                    subMenu.style.display = 'none';
+                                    this.classList.remove('active');
+                                    if (chevron) chevron.style.transform = '';
+                                } else {
+                                    subMenu.style.display = 'block';
+                                    this.classList.add('active');
+                                    if (chevron) chevron.style.transform = 'rotate(180deg)';
+                                }
+                            });
+                        });
+
+                        // Fermer le menu lors du clic sur un lien
+                        mobileNav.querySelectorAll('a:not(.menu-toggle-sub)').forEach(link => {
+                            link.addEventListener('click', function() {
+                                if (!this.classList.contains('menu-toggle-sub')) {
+                                    closeMenu();
+                                }
+                            });
+                        });
+                    });
+                </script>
             </div>
         </div>
     </div>
@@ -193,182 +1285,247 @@
         <div class="kingster-body-wrapper clearfix kingster-with-transparent-header kingster-with-frame">
             <div class="kingster-header-background-transparent">
                 <div class="kingster-top-bar">
-                    <div class="kingster-top-bar-background"></div>
+                    <div class="kingster-top-bar-background" style="background-color:darkorange;"></div>
                     <div class="kingster-top-bar-container kingster-container">
                         <div class="kingster-top-bar-container-inner clearfix">
-                            <div class="kingster-top-bar-left kingster-item-pdlr">
-                                <a href="#" style="margin-right: 30px;">Campus</a><a href="#" style="margin-right: 30px;">Documentation</a><a href="#" style="margin-right: 30px;">Login</a>
-                            </div>
+
                             <div class="kingster-top-bar-right kingster-item-pdlr">
-                                <div class="kingster-top-bar-right-text"><span style="color: #8dd7e5; margin-right: 30px;">Phone: +1 212 946 2707</span><a href="#" style="margin-right: 0px;">Help Center</a></div>
-                                <div class="kingster-top-bar-right-social">
-                                    <a href="#" target="_blank" class="kingster-top-bar-social-icon" title="facebook"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" target="_blank" class="kingster-top-bar-social-icon" title="twitter"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" target="_blank" class="kingster-top-bar-social-icon" title="instagram"><i class="fa fa-instagram"></i></a>
-                                </div>
+                                <div class="kingster-top-bar-right-text"><span style="color: #8dd7e5; margin-right: 30px;">Téléphone: (+221) 77 809 03 03 </span><a href="tel:+221778090303" style="margin-right: 0px;">Centre d'Aide</a></div>
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <header class="kingster-header-wrap kingster-header-style-plain kingster-style-splitted-menu kingster-sticky-navigation kingster-style-slide clearfix" data-navigation-offset="75px">
-                    <div class="kingster-header-background"></div>
-                    <div class="kingster-header-container kingster-container">
+                    <style>
+                        /* Styles modernes pour le header */
+                        .kingster-header-wrap {
+                            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                            background: white;
+                        }
+
+                        .kingster-main-menu > ul > li > a {
+                            font-weight: 600;
+                            letter-spacing: 0.5px;
+                            transition: all 0.3s ease;
+                            padding: 25px 20px;
+                            color: #333;
+                        }
+
+                        .kingster-main-menu > ul > li > a:hover {
+                            color: darkorange;
+                        }
+
+                        /* Mega menu amélioré */
+                        .sf-mega {
+                            border-top: 3px solid darkorange;
+                            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                            padding: 20px 0 !important;
+                        }
+
+                        /* Styles pour les écoles */
+                        .school-title {
+                            font-size: 18px;
+                            font-weight: 700;
+                            color: #333;
+                            border-left: 4px solid darkorange;
+                            padding-left: 10px;
+                            margin-bottom: 15px;
+                            text-transform: uppercase;
+                        }
+
+                        /* Styles pour les cycles */
+                        .cycle-title {
+                            display: block;
+                            padding: 8px 15px;
+                            margin: 10px 0;
+                            background: darkorange;
+                            color: white;
+                            font-weight: 600;
+                            border-radius: 4px;
+                            text-transform: uppercase;
+                            font-size: 14px;
+                            letter-spacing: 1px;
+                        }
+
+                        .cycle-title.second-cycle {
+                            background: #555;
+                        }
+
+                        /* Styles pour les formations */
+                        .sub-menu .menu-item a {
+                            padding: 8px 15px;
+                            display: block;
+                            transition: all 0.2s;
+                            color: #555;
+                            border-left: 2px solid transparent;
+                        }
+
+                        .sub-menu .menu-item a:hover {
+                            color: darkorange;
+                            border-left: 2px solid darkorange;
+                            background: rgba(255,140,0,0.05);
+                            transform: translateX(5px);
+                        }
+
+                        /* Logo amélioré */
+                        .kingster-logo-inner img {
+                            transition: all 0.3s;
+                        }
+
+                        .kingster-logo-inner:hover img {
+                            transform: scale(1.05);
+                        }
+
+                        /* Bouton recherche */
+                        .kingster-main-menu-search i {
+                            color: #333;
+                            transition: all 0.3s;
+                        }
+
+                        .kingster-main-menu-search:hover i {
+                            color: darkorange;
+                            transform: scale(1.1);
+                        }
+
+                        /* Styles modernisés pour tous les menus déroulants */
+                        .kingster-main-menu > ul > li.menu-item-has-children > .sub-menu {
+                            border-top: 3px solid darkorange;
+                            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                            padding: 20px !important;
+                            min-width: 250px;
+                            background: white;
+                            border-radius: 0 0 8px 8px;
+                        }
+
+                        /* Styles unifiés pour les sous-éléments */
+                        .kingster-main-menu .sub-menu .menu-item {
+                            padding: 5px 0;
+                            position: relative;
+                        }
+
+                        .kingster-main-menu .sub-menu .menu-item > a {
+                            display: block;
+                            padding: 10px 15px;
+                            color: #555 !important;
+                            font-weight: 500;
+                            transition: all 0.3s ease;
+                            border-left: 3px solid transparent;
+                        }
+
+                        .kingster-main-menu .sub-menu .menu-item > a:hover {
+                            color: darkorange !important;
+                            background: rgba(255,140,0,0.05);
+                            border-left: 3px solid darkorange;
+                            transform: translateX(5px);
+                        }
+
+                        /* Style pour les titres de sections (comme dans Formations) */
+                        .sub-menu .menu-section-title {
+                            display: block;
+                            padding: 8px 15px;
+                            margin: 15px 0 10px;
+                            background: darkorange;
+                            color: white;
+                            font-weight: 600;
+                            border-radius: 4px;
+                            text-transform: uppercase;
+                            font-size: 14px;
+                            letter-spacing: 1px;
+                        }
+
+                        /* Mega menu amélioré (conservé tel quel) */
+                        .sf-mega {
+                            width: 100% !important;
+                            left: 0 !important;
+                            padding: 30px !important;
+                        }
+                    </style>
+
+                    <div class="kingster-header-background" style="background-color: lightslategray;"></div>
+                    <div class="kingster-header-container kingster-container" style="color: darkorange;">
                         <div class="kingster-header-container-inner clearfix">
                             <div class="kingster-navigation kingster-item-pdlr clearfix">
                                 <div class="kingster-main-menu" id="kingster-main-menu">
                                     <ul id="menu-main-navigation-1" class="sf-menu">
-                                        <li class="menu-itemmenu-item-home  kingster-normal-menu">
-                                            <a href="index.html">Home</a>
+                                        <li class="menu-item menu-item-home page_item page-item-6208 kingster-normal-menu">
+                                            <a href="index.html">Accueil</a>
                                         </li>
-                                        <li class="menu-item menu-item-has-children kingster-normal-menu">
-                                            <a href="#" class="sf-with-ul-pre">Pages</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item" data-size="60"><a href="about-us.html">About KU</a></li>
-                                                <li class="menu-item" data-size="60"><a href="contact.html">Contact</a></li>
-                                                <li class="menu-itemmenu-item-has-children " data-size="60">
-                                                    <a href="portfolio-3-columns.html" class="sf-with-ul-pre">Portfolio</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item menu-item-has-children ">
-                                                            <a class="sf-with-ul-pre">Portfolio Grid</a>
-                                                            <ul class="sub-menu">
-                                                                <li class="menu-item"><a href="portfolio-2-columns.html">Portfolio 2 Columns</a></li>
-                                                                <li class="menu-item"><a href="portfolio-3-columns.html">Portfolio 3 Columns</a></li>
-                                                                <li class="menu-item"><a href="portfolio-4-columns.html">Portfolio 4 Columns</a></li>
-                                                                <li class="menu-item"><a href="portfolio-5-columns.html">Portfolio 5 Columns</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="menu-item menu-item-has-children ">
-                                                            <a class="sf-with-ul-pre">Portfolio Masonry</a>
-                                                            <ul class="sub-menu">
-                                                                <li class="menu-item"><a href="portfolio-masonry-4-columns.html">Masonry 4 Columns</a></li>
-                                                                <li class="menu-item"><a href="portfolio-masonry-3-columns.html">Masonry 3 Columns</a></li>
-                                                                <li class="menu-item"><a href="portfolio-masonry-2-columns.html">Masonry 2 Columns</a></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="menu-item menu-item-has-children ">
-                                                            <a class="sf-with-ul-pre">Portfolio Side Thumbnail</a>
-                                                            <ul class="sub-menu">
-                                                                <li class="menu-item">
-                                                                    <a href="portfolio-left-large-thumbnail.html">Portfolio Left Large Thumbnail</a>
-                                                                </li>
-                                                                <li class="menu-item">
-                                                                    <a href="portfolio-right-large-thumbnail.html">Portfolio Right Large Thumbnail</a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item" data-size="60"><a href="gallery.html">Gallery</a></li>
-                                                <li class="menu-item" data-size="60"><a href="price-table.html">Price Table</a></li>
-                                                <li class="menu-item" data-size="60"><a href="maintenance.html">Maintenance</a></li>
-                                                <li class="menu-item" data-size="60"><a href="coming-soon.html">Coming Soon</a></li>
-                                                <li class="menu-item " data-size="60"><a href="404.html">404 Page</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-itemmenu-item-has-children kingster-mega-menu">
-                                            <a href="bachelor-of-science-in-business-administration.html" class="sf-with-ul-pre">Academics</a>
-                                            <div class="sf-mega sf-mega-full" style="background-image: url('upload/mega-menu-bg.jpg'); background-position: bottom right; background-repeat: no-repeat;">
+                                        <li class="menu-item menu-item-has-children kingster-mega-menu">
+                                            <a href="#" class="sf-with-ul-pre">Programmes</a>
+                                            <div class="sf-mega sf-mega-full">
                                                 <ul class="sub-menu">
-                                                    <li class="menu-item menu-item-has-children " data-size="15">
-                                                        <a class="sf-with-ul-pre">Undergraduate</a>
+                                                    <li class="menu-item menu-item-has-children" data-size="30">
+                                                        <span class="school-title">Business School</span>
                                                         <ul class="sub-menu">
                                                             <li class="menu-item">
-                                                                <a href="bachelor-of-science-in-business-administration.html">Business Administration</a>
-                                                            </li>
-                                                            <li class="menu-item"><a href="school-of-law.html">School Of Law</a></li>
-                                                            <li class="menu-item"><a href="engineering.html">Engineering</a></li>
-                                                            <li class="menu-item"><a href="medicine.html">Medicine</a></li>
-                                                            <li class="menu-item"><a href="art-science.html">Art &#038; Science</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="menu-item menu-item-has-children " data-size="15">
-                                                        <a href="#" class="sf-with-ul-pre">Graduate Program</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="hospitality-management.html">Hospitality Management</a></li>
-                                                            <li class="menu-item"><a href="physics.html">Physics</a></li>
-                                                            <li class="menu-item "><a href="#">Chemistry</a></li>
-                                                            <li class="menu-item "><a href="#">Computer Science</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="menu-item menu-item-has-children " data-size="15">
-                                                        <a href="#" class="sf-with-ul-pre">Resources</a>
-                                                        <ul class="sub-menu">
-                                                            <li class="menu-item"><a href="bachelor-of-science-in-business-administration.html">Department Page</a></li>
-                                                            <li class="menu-item">
-                                                                <a href="finance.html">Major Page</a>
+                                                                <span class="cycle-title">LICENCE</span>
+                                                                <ul class="sub-menu">
+                                                                    <li class="menu-item"><a href="bachelor-of-science-in-business-administration.html">Gestion des entreprises</a></li>
+                                                                </ul>
                                                             </li>
                                                             <li class="menu-item">
-                                                                <a href="finance-faculty.html">Faculty Page</a>
+                                                                <span class="cycle-title second-cycle">MASTER</span>
+                                                                <ul class="sub-menu">
+                                                                    <li class="menu-item"><a href="hospitality-management.html">Master of Science (MSc) in Management (Options)</a></li>
+                                                                </ul>
                                                             </li>
-                                                            <li class="menu-item "><a href="introduction-to-financial-accounting.html">Single Course</a></li>
                                                         </ul>
                                                     </li>
-                                                    <li class="menu-item " data-size="15">
+                                                    <li class="menu-item menu-item-has-children" data-size="30">
+                                                        <span class="school-title">École d'Ingénieur</span>
+                                                        <ul class="sub-menu">
+                                                            <li class="menu-item">
+                                                                <span class="cycle-title">Premier Cycle</span>
+                                                                <ul class="sub-menu">
+                                                                    <li class="menu-item"><a href="school-of-law.html">Informatique</a></li>
+                                                                    <li class="menu-item"><a href="engineering.html">Géomatique</a></li>
+                                                                    <li class="menu-item"><a href="medicine.html">Electromécanique</a></li>
+                                                                    <li class="menu-item"><a href="finance.html">Génie Civil</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="menu-item">
+                                                                <span class="cycle-title second-cycle">Cycle Ingénieur </span>
+                                                                <ul class="sub-menu">
+                                                                    <li class="menu-item"><a href="#">Master en Ingénierie (Options)</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="menu-item" data-size="15">
                                                         <div class="kingster-mega-menu-section-content">
-                                                            <img src="upload/menu-logo.png" style="margin-bottom: 13px;" alt="" /><br />
-                                                            <span style="font-size: 14px; font-weight: 500;">Academic offerings include 95 majors, 86 minors, and more than 100 in-major specializations</span>
+                                                            <img src="./images/Performics/logo-removebg-preview.png" style="max-width: 180px; margin: 10px auto; display: block;" alt="Logo" />
+                                                            <div style="text-align: center; margin-top: 15px;">
+                                                                <a href="./index.html#nousEcrire" style="display: inline-block; padding: 8px 20px; background: darkorange; color: white; border-radius: 4px; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Contactez-nous</a>
+                                                            </div>
                                                         </div>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </li>
-                                        <li class="menu-itemmenu-item-has-children  current-menu-item current_page_item kingster-normal-menu">
+                                        <!-- Admissions -->
+                                        <li class="menu-item menu-item-has-children kingster-normal-menu">
                                             <a href="apply-to-kingster.html" class="sf-with-ul-pre">Admissions</a>
                                             <ul class="sub-menu">
-                                                <li class="menu-item" data-size="60"><a href="apply-to-kingster.html">Apply To Kingster</a></li>
-                                                <li class="menu-item" data-size="60"><a href="campus-tour.html">Campus Tour</a></li>
-                                                <li class="menu-item" data-size="60"><a href="scholarships.html">Scholarships</a></li>
-                                                <li class="menu-item" data-size="60"><a href="athletics.html">Athletics</a></li>
-                                                <li class="menu-item" data-size="60"><a href="give-to-kingster.html">Give To Kingster</a></li>
-                                                <li class="menu-item" data-size="60"><a href="alumni.html">Alumni</a></li>
-                                                <li class="menu-item" data-size="60"><a href="event-calendar.html">Event Calendar</a></li>
+                                                <li class="menu-item"><span class="menu-section-title"><a
+                                                        href="./apply-to-kingster.html#procedureCandidature">Procédures</a> </span></li>
+                                                <li class="menu-item"><a href="apply-to-kingster.html">CANDIDATURE</a></li>
+                                                <li class="menu-item"><span class="menu-section-title"><a href="apply-to-kingster.html#conditionsAdmissions">Documents & Conditions d'Admissions</a> </span></li>
                                             </ul>
                                         </li>
                                         <li class="kingster-center-nav-menu-item">
                                             <div class="kingster-logo kingster-item-pdlr">
                                                 <div class="kingster-logo-inner">
-                                                    <a class="" href="index.html"><img src="upload/logo-HP.png" alt="" width="200" height="200" title="logo HP" /></a>
+                                                    <a href="index.html"><img src="./images/Performics/logo-removebg-preview.png" alt="Logo HP" width="200" height="200" title="Logo HP" /></a>
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="menu-item menu-item-has-children  kingster-normal-menu">
-                                            <a href="course-list-1.html" class="sf-with-ul-pre">Courses</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item" data-size="60"><a href="course-list-1.html">Course List 1</a></li>
-                                                <li class="menu-item" data-size="60"><a href="course-list-2.html">Course List 2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item kingster-normal-menu"><a href="athletics.html">Athletics</a></li>
-                                        <li class="menu-item kingster-normal-menu"><a href="university-life.html">University Life</a></li>
-                                        <li class="menu-itemmenu-item-has-children  kingster-normal-menu">
-                                            <a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Blog</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-itemmenu-item-has-children " data-size="60">
-                                                    <a href="blog-full-right-sidebar-with-frame.html" class="sf-with-ul-pre">Blog Full</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-full-right-sidebar.html">Blog Full Right Sidebar</a></li>
-                                                        <li class="menu-item"><a href="blog-full-left-sidebar.html">Blog Full Left Sidebar</a></li>
-                                                        <li class="menu-item"><a href="blog-full-both-sidebar.html">Blog Full Both Sidebar</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-itemmenu-item-has-children " data-size="60">
-                                                    <a href="blog-grid-3-columns-no-space.html" class="sf-with-ul-pre">Blog Grid</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-grid-2-columns.html">Blog Grid 2 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-3-columns.html">Blog Grid 3 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-grid-4-columns.html">Blog Grid 4 Columns</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-itemmenu-item-has-children " data-size="60">
-                                                    <a href="blog-3-columns-with-frame.html" class="sf-with-ul-pre">Blog Columns</a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item"><a href="blog-2-columns.html">Blog 2 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-3-columns.html">Blog 3 Columns</a></li>
-                                                        <li class="menu-item"><a href="blog-4-columns.html">Blog 4 Columns</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item"><a href="standard-post-type.html">Single Post</a></li>
-                                            </ul>
+
+                                        <li class="menu-item kingster-normal-menu"><a href="athletics.html">Vie Étudiante</a></li>
+                                        <li class="menu-item kingster-normal-menu"><a href="university-life.html">Incubateur</a></li>
+                                        <li class="menu-item menu-item-has-children kingster-normal-menu">
+                                            <a href="./scholarships.html" class="sf-with-ul-pre">Career Service</a>
+
                                         </li>
                                     </ul>
                                 </div>
@@ -376,600 +1533,780 @@
                                     <div class="kingster-main-menu-search" id="kingster-top-search"><i class="icon_search"></i></div>
                                     <div class="kingster-top-search-wrap">
                                         <div class="kingster-top-search-close"></div>
-
                                         <div class="kingster-top-search-row">
                                             <div class="kingster-top-search-cell">
                                                 <form role="search" method="get" class="search-form" action="#">
-                                                    <input type="text" class="search-field kingster-title-font" placeholder="Search..." value="" name="s" />
+                                                    <input type="text" class="search-field kingster-title-font" placeholder="Recherche..." value="" name="s" />
                                                     <div class="kingster-top-search-submit"><i class="fa fa-search"></i></div>
-                                                    <input type="submit" class="search-submit" value="Search" />
+                                                    <input type="submit" class="search-submit" value="Rechercher" />
                                                     <div class="kingster-top-search-close"><i class="icon_close"></i></div>
-                                                    <input type="hidden" name="ref" value="course" /><input type="hidden" name="post_type" value="lp_course" />
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- kingster-navigation -->
                         </div>
-                        <!-- kingster-header-inner -->
                     </div>
-                    <!-- kingster-header-container -->
                 </header>
-                <!-- header -->
+
             </div>
+            <br><br>
+            <section class="career-service">
+                <!-- Hero Section -->
+                <div class="hero-section">
+                    <div class="hero-image-container">
+                        <img src="./images/Performics/career/WhatsApp%20Image%202025-07-11%20à%2012.56.20_7b753025.jpg" alt="Étudiants Performics" class="hero-image">
+                    </div>
+                    <div class="hero-content">
+                        <h1>Transformez votre potentiel en succès professionnel</h1>
+                        <p>Le Career Service de Performics vous offre un accompagnement sur mesure pour votre insertion professionnelle, avec des outils innovants et un réseau d'entreprises partenaires.</p>
+                        <a href="#missions" class="cta-button">
+                            Explorer nos services <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
 
+                <style>
+                    /* Animation du dégradé */
+                    @keyframes gradientShift {
+                        0% { background-position: 0% 50%; }
+                        50% { background-position: 100% 50%; }
+                        100% { background-position: 0% 50%; }
+                    }
 
+                    .hero-section {
 
-             <div class="kingster-page-wrapper" id="kingster-page-wrapper">
-                <div class="gdlr-core-page-builder-body">
-                    <div class="gdlr-core-pbf-wrapper" style="padding: 640px 0px 75px 0px;" id="gdlr-core-wrapper-1">
-                        <div class="gdlr-core-pbf-background-wrap">
-                            <div
-                                class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js"
-                                style="background-image: url(upload/scholarships-title-bg.jpg); background-size: cover; background-position: center;"
-                                data-parallax-speed="0"
-                            ></div>
+                        background: linear-gradient(135deg, #FF8C00, #FFA500, #FF6347);
+                        background-size: 200% 200%;
+                        animation: gradientShift 8s ease infinite;
+                        min-height: 80vh;
+                        display: flex;
+                        flex-direction: column; /* Par défaut colonne (mobile first) */
+                        padding: 2rem;
+                        margin: 0rem;
+                        position: relative;
+                        overflow: hidden;
+                    }
+
+                    .hero-content {
+                        width: 100%;
+                        z-index: 2;
+                        padding: 2rem 0;
+                        color: white;
+                        order: 2; /* Le contenu vient après l'image sur mobile */
+                    }
+
+                    .hero-content h1 {
+                        font-family: 'Arial Black', sans-serif;
+                        color: whitesmoke;
+                        font-size: 2.5rem;
+                        margin-bottom: 1.5rem;
+                        line-height: 1.2;
+                    }
+
+                    .hero-content p {
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                        margin-bottom: 2rem;
+                        color: white;
+                    }
+
+                    .hero-image-container {
+                        width: 100%;
+                        max-width: 600px;
+                        margin: 10rem auto;
+                        z-index: 1;
+                        position: relative;
+                        order: 1; /* L'image vient en premier sur mobile */
+
+                    }
+
+                    .hero-image {
+                        width: 100%;
+                        border-radius: 15px;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+                    }
+
+                    .cta-button {
+                        display: inline-block;
+                        background-color: white;
+                        color: #FF8C00;
+                        padding: 1rem 2rem;
+                        border-radius: 50px;
+                        text-decoration: none;
+                        font-weight: bold;
+                        margin-top: 1.5rem;
+                        transition: all 0.3s ease;
+                        font-size: 1.1rem;
+                    }
+
+                    .cta-button:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                    }
+
+                    /* Version desktop */
+                    @media (min-width: 992px) {
+                        .hero-section {
+                            flex-direction: row; /* Disposition horizontale sur desktop */
+                            align-items: center;
+                            padding: 4rem;
+                            min-height: 600px;
+                        }
+
+                        .hero-content {
+                            max-width: 50%;
+                            text-align: left;
+                            padding-right: 3rem;
+                            order: 1; /* Le contenu revient à gauche sur desktop */
+                        }
+
+                        .hero-image-container {
+                            width: 50%;
+                            order: 2; /* L'image à droite sur desktop */
+                        }
+
+                        .hero-content h1 {
+                            font-size: 3.5rem;
+                        }
+
+                        .hero-image {
+                            transform: perspective(1000px) rotateY(-15deg);
+                            transition: transform 0.5s ease;
+                        }
+
+                        .hero-image:hover {
+                            transform: perspective(1000px) rotateY(-5deg);
+                        }
+                    }
+
+                    /* Version tablette */
+                    @media (max-width: 991px) and (min-width: 768px) {
+                        .hero-content h1 {
+                            font-size: 2.8rem;
+                        }
+                    }
+
+                    /* Version mobile */
+                    @media (max-width: 767px) {
+                        .hero-content {
+                            padding-top: 2rem;
+                        }
+
+                        .hero-content h1 {
+                            font-size: 2rem;
+                        }
+
+                        .hero-content p {
+                            font-size: 1rem;
+                        }
+
+                        .cta-button {
+                            padding: 0.8rem 1.5rem;
+                            font-size: 1rem;
+                        }
+                        .hero-image-container {
+                            width: 50%;
+                            order: 2; /* L'image à droite sur desktop */
+                            margin: 0 auto;
+                        }
+                    }
+                </style>
+
+                <!-- Animated Background Shapes -->
+                <div class="bg-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
+
+                <!-- Section Header -->
+                <div class="section-header" id="missions">
+                    <h2 style="font-family: 'Arial Black';">Notre Approche Unique</h2>
+                    <p>Un accompagnement personnalisé à chaque étape de votre parcours professionnel</p>
+                </div>
+
+                <!-- Mission Grid -->
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <div class="mission-card-icon">
+                            <i class="fas fa-bullseye"></i>
                         </div>
-                        <div
-                            class="gdlr-core-page-builder-wrapper-top-gradient"
-                            style="
-                                height: 413px;
-                                background: linear-gradient(rgba(0, 0, 0, 100), rgba(0, 0, 0, 0));
-                                -moz-background: linear-gradient(rgba(0, 0, 0, 100), rgba(0, 0, 0, 0));
-                                -o-background: linear-gradient(rgba(0, 0, 0, 100), rgba(0, 0, 0, 0));
-                                -webkit-background: linear-gradient(rgba(0, 0, 0, 100), rgba(0, 0, 0, 0));
-                            "
-                        ></div>
-                        <div
-                            class="gdlr-core-page-builder-wrapper-bottom-gradient"
-                            style="
-                                height: 309px;
-                                background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 100));
-                                -moz-background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 100));
-                                -o-background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 100));
-                                -webkit-background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 100));
-                            "
-                        ></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-column gdlr-core-column-20 gdlr-core-column-first">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr">
-                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 40px; font-weight: 700; letter-spacing: 0px; text-transform: none; color: #ffffff;">Scholarships</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-left-align">
-                                                    <div class="gdlr-core-divider-container" style="max-width: 300px;">
-                                                        <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #0082fa; border-width: 5px;"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-40">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 0px;">
-                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 18px; text-transform: none; color: #ffffff;">
-                                                        <p>
-                                                            Kingster University offers a variety of scholarships and fellowships designed to help you and your family pay for university. Scholarships and grants are types of gift aid that
-                                                            do not have to be repaid. They may take the form of University scholarships, federal or state grants, or outside scholarships.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="mission-card-content">
+                            <h3 style="font-family: 'Arial Black';">Orientation Professionnelle</h3>
+                            <p>Construisez un projet clair et réaliste adapté à vos aspirations</p>
+                            <ul>
+                                <li>Bilan de compétences personnalisé</li>
+                                <li>Coaching individuel</li>
+                                <li>Ateliers de connaissance de soi</li>
+                                <li>Plan de développement personnalisé</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="gdlr-core-pbf-wrapper" style="padding: 90px 0px 10px 0px;">
-                        <div class="gdlr-core-pbf-background-wrap"></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 40px;">
-                                        <div class="gdlr-core-title-item-left-image gdlr-core-media-image" style="margin: -23px 20px 0px 0px;">
-                                            <img src="upload/title-icon.png" alt="" width="53" height="52" title="title-icon" />
-                                        </div>
-                                        <div class="gdlr-core-title-item-left-image-wrap">
-                                            <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 27px; font-weight: 700; letter-spacing: 0px; text-transform: none;">Scholarships Sources</h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-20 gdlr-core-column-first" data-skin="Green Title">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js">
-                                        <div class="gdlr-core-pbf-background-wrap"></div>
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-column-service-item gdlr-core-item-pdb gdlr-core-left-align gdlr-core-column-service-icon-top gdlr-core-no-caption gdlr-core-item-pdlr" style="padding-bottom: 2px;">
-                                                    <div class="gdlr-core-column-service-content-wrapper">
-                                                        <div class="gdlr-core-column-service-title-wrap" style="margin-bottom: 22px;">
-                                                            <h3 class="gdlr-core-column-service-title gdlr-core-skin-title" style="font-size: 19px; font-weight: 600; text-transform: none;">Kingsters' Scholarships</h3>
-                                                        </div>
-                                                        <div class="gdlr-core-column-service-content" style="font-size: 16px; text-transform: none;">
-                                                            <p>Kingster University offers a variety of scholar ships and fellowships designed to help you and your family pay for university. Scholarships and grants are types of gift.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                                    <a
-                                                        class="gdlr-core-button gdlr-core-button-transparent gdlr-core-left-align gdlr-core-button-no-border"
-                                                        href="#"
-                                                        style="
-                                                            font-size: 16px;
-                                                            font-weight: 400;
-                                                            letter-spacing: 0px;
-                                                            color: #3db166;
-                                                            padding: 0px 0px 0px 0px;
-                                                            text-transform: none;
-                                                            border-radius: 0px;
-                                                            -moz-border-radius: 0px;
-                                                            -webkit-border-radius: 0px;
-                                                        "
-                                                    >
-                                                        <span class="gdlr-core-content">Read More</span><i class="gdlr-core-pos-right arrow_right" style="font-size: 21px; color: #3db166;"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-20" data-skin="Green Title">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js">
-                                        <div class="gdlr-core-pbf-background-wrap"></div>
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-column-service-item gdlr-core-item-pdb gdlr-core-left-align gdlr-core-column-service-icon-top gdlr-core-no-caption gdlr-core-item-pdlr" style="padding-bottom: 2px;">
-                                                    <div class="gdlr-core-column-service-content-wrapper">
-                                                        <div class="gdlr-core-column-service-title-wrap" style="margin-bottom: 22px;">
-                                                            <h3 class="gdlr-core-column-service-title gdlr-core-skin-title" style="font-size: 19px; font-weight: 600; text-transform: none;">Federal Grant Programs</h3>
-                                                        </div>
-                                                        <div class="gdlr-core-column-service-content" style="font-size: 16px; text-transform: none;">
-                                                            <p>Kingster University offers a variety of scholar ships and fellowships designed to help you and your family pay for university. Scholarships and grants are types of gift.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                                    <a
-                                                        class="gdlr-core-button gdlr-core-button-transparent gdlr-core-left-align gdlr-core-button-no-border"
-                                                        href="#"
-                                                        style="
-                                                            font-size: 16px;
-                                                            font-weight: 400;
-                                                            letter-spacing: 0px;
-                                                            color: #3db166;
-                                                            padding: 0px 0px 0px 0px;
-                                                            text-transform: none;
-                                                            border-radius: 0px;
-                                                            -moz-border-radius: 0px;
-                                                            -webkit-border-radius: 0px;
-                                                        "
-                                                    >
-                                                        <span class="gdlr-core-content">Read More</span><i class="gdlr-core-pos-right arrow_right" style="font-size: 21px; color: #3db166;"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-20" data-skin="Green Title">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js">
-                                        <div class="gdlr-core-pbf-background-wrap"></div>
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-column-service-item gdlr-core-item-pdb gdlr-core-left-align gdlr-core-column-service-icon-top gdlr-core-no-caption gdlr-core-item-pdlr" style="padding-bottom: 2px;">
-                                                    <div class="gdlr-core-column-service-content-wrapper">
-                                                        <div class="gdlr-core-column-service-title-wrap" style="margin-bottom: 22px;">
-                                                            <h3 class="gdlr-core-column-service-title gdlr-core-skin-title" style="font-size: 19px; font-weight: 600; text-transform: none;">State Scholarships</h3>
-                                                        </div>
-                                                        <div class="gdlr-core-column-service-content" style="font-size: 16px; text-transform: none;">
-                                                            <p>Kingster University offers a variety of scholar ships and fellowships designed to help you and your family pay for university. Scholarships and grants are types of gift.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-button-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                                    <a
-                                                        class="gdlr-core-button gdlr-core-button-transparent gdlr-core-left-align gdlr-core-button-no-border"
-                                                        href="#"
-                                                        style="
-                                                            font-size: 16px;
-                                                            font-weight: 400;
-                                                            letter-spacing: 0px;
-                                                            color: #3db166;
-                                                            padding: 0px 0px 0px 0px;
-                                                            text-transform: none;
-                                                            border-radius: 0px;
-                                                            -moz-border-radius: 0px;
-                                                            -webkit-border-radius: 0px;
-                                                        "
-                                                    >
-                                                        <span class="gdlr-core-content">Read More</span><i class="gdlr-core-pos-right arrow_right" style="font-size: 21px; color: #3db166;"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                    <div class="mission-card">
+                        <div class="mission-card-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="mission-card-content">
+                            <h3 style="font-family: 'Arial Black';">Stages & Alternance</h3>
+                            <p>Accédez à des opportunités qualitatives avec notre réseau</p>
+                            <ul>
+                                <li>Mise en relation avec 200+ entreprises</li>
+                                <li>Suivi personnalisé pendant le stage</li>
+                                <li>Ateliers de retour d'expérience</li>
+                                <li>Conversion stage-emploi</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="gdlr-core-pbf-wrapper" style="padding: 60px 0px 20px 0px;">
-                        <div class="gdlr-core-pbf-background-wrap"></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-column gdlr-core-column-30 gdlr-core-column-first">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js" style="margin: 0px 20px 0px 0px;">
-                                        <div class="gdlr-core-pbf-background-wrap"></div>
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr">
-                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 22px; font-weight: 600; letter-spacing: 0px; text-transform: none;">Requirements</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 10px;">
-                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 19px; text-transform: none; color: #0082fa;">
-                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-style-1" style="padding-bottom: 25px;">
-                                                    <ul>
-                                                        <li class="gdlr-core-skin-divider clearfix" style="margin-bottom: 22px;">
-                                                            <span class="gdlr-core-icon-list-icon-wrap gdlr-core-left" style="margin-top: 5px;">
-                                                                <i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #0082fa; font-size: 18px; width: 18px;"></i>
-                                                            </span>
-                                                            <div class="gdlr-core-icon-list-content-wrap"><span class="gdlr-core-icon-list-content" style="font-size: 17px;">You are a full-time student (at least 12 points).</span></div>
-                                                        </li>
-                                                        <li class="gdlr-core-skin-divider clearfix" style="margin-bottom: 22px;">
-                                                            <span class="gdlr-core-icon-list-icon-wrap gdlr-core-left" style="margin-top: 5px;">
-                                                                <i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #0082fa; font-size: 18px; width: 18px;"></i>
-                                                            </span>
-                                                            <div class="gdlr-core-icon-list-content-wrap"><span class="gdlr-core-icon-list-content" style="font-size: 17px;">You applied for financial aid on time.</span></div>
-                                                        </li>
-                                                        <li class="gdlr-core-skin-divider clearfix" style="margin-bottom: 22px;">
-                                                            <span class="gdlr-core-icon-list-icon-wrap gdlr-core-left" style="margin-top: 5px;">
-                                                                <i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #0082fa; font-size: 18px; width: 18px;"></i>
-                                                            </span>
-                                                            <div class="gdlr-core-icon-list-content-wrap">
-                                                                <span class="gdlr-core-icon-list-content" style="font-size: 17px;">You are meeting the Satisfactory Academic Progress standards.</span>
-                                                            </div>
-                                                        </li>
-                                                        <li class="gdlr-core-skin-divider clearfix" style="margin-bottom: 22px;">
-                                                            <span class="gdlr-core-icon-list-icon-wrap gdlr-core-left" style="margin-top: 5px;">
-                                                                <i class="gdlr-core-icon-list-icon fa fa-dot-circle-o" style="color: #0082fa; font-size: 18px; width: 18px;"></i>
-                                                            </span>
-                                                            <div class="gdlr-core-icon-list-content-wrap">
-                                                                <span class="gdlr-core-icon-list-content" style="font-size: 17px;">You have approximately the same amount of financial need that you had in prior years.</span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-divider-item gdlr-core-divider-item-normal gdlr-core-item-pdlr gdlr-core-center-align" style="margin-bottom: 55px;">
-                                                    <div class="gdlr-core-divider-line gdlr-core-skin-divider" style="border-color: #0082fa; border-width: 3px;"></div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr">
-                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 22px; font-weight: 600; letter-spacing: 0px; text-transform: none;">Guidance and Advice</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
-                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 17px; text-transform: none; color: #8f8f8f;">
-                                                        <p>
-                                                            Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the
-                                                            necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind
-                                                            texts it is an almost unorthographic life.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-30" id="gdlr-core-column-82708">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js gdlr-core-column-extend-right" style="margin: 0px 0px 0px 20px; padding: 66px 0px 0px 46px;">
-                                        <div class="gdlr-core-pbf-background-wrap" style="background-color: #f5f5f5; border-width: 0px 0px 3px 0px; border-color: #0082fa; border-style: solid;"></div>
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-image-item gdlr-core-item-pdb gdlr-core-center-align gdlr-core-item-pdlr" style="padding-bottom: 45px;">
-                                                    <div class="gdlr-core-image-item-wrap gdlr-core-media-image gdlr-core-image-item-style-rectangle" style="border-width: 0px;">
-                                                        <img src="upload/scholarship-student.jpg" alt="" width="800" height="517" title="scholarship-student" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 20px;">
-                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 19px; font-weight: 600; letter-spacing: 0px; text-transform: none;">
-                                                            Featured Student (Scholarship)
-                                                        </h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 35px;">
-                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 17px; text-transform: none; color: #8f8f8f;">
-                                                        <p>
-                                                            Far far away, behind the word mountains, far.there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A
-                                                            small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                    <div class="mission-card">
+                        <div class="mission-card-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="mission-card-content">
+                            <h3 style="font-family: 'Arial Black';">Outils Professionnels</h3>
+                            <p>Maîtrisez les techniques de recherche d'emploi modernes</p>
+                            <ul>
+                                <li>CV et lettre de motivation percutants</li>
+                                <li>Préparation aux entretiens vidéo</li>
+                                <li>Optimisation LinkedIn et réseaux</li>
+                                <li>Techniques de networking</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="gdlr-core-pbf-wrapper" style="padding: 40px 0px 50px 0px;">
-                        <div class="gdlr-core-pbf-background-wrap"></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-column gdlr-core-column-30 gdlr-core-column-first">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 35px;">
-                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 24px; font-weight: 600; letter-spacing: 0px; text-transform: none; color: #1a1a1a;">
-                                                            Contact For Scholarship
-                                                        </h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 15px;">
-                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 16px; text-transform: none; color: #414141;">
-                                                        <p>We are opn on Monday &#8211; Friday at 11am and 3pm, except on holidays.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 10px;">
-                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <div
-                                                            class="gdlr-core-title-item-title gdlr-core-skin-title gdlr-core-title-font"
-                                                            style="font-size: 16px; font-weight: 700; letter-spacing: 0px; text-transform: none; color: #414141;"
-                                                        >
-                                                            Charlie’s Admissions Center
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align" style="padding-bottom: 5px;">
-                                                    <div class="gdlr-core-text-box-item-content" style="font-size: 16px; text-transform: none; color: #8f8f8f;">
-                                                        <p>
-                                                            223 Campus Way NE<br />
-                                                            Bothell, WA 98011-8246
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 15px;">
-                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <div
-                                                            class="gdlr-core-title-item-title gdlr-core-skin-title gdlr-core-title-font"
-                                                            style="font-size: 16px; font-weight: 700; letter-spacing: 0px; text-transform: none; color: #414141;"
-                                                        >
-                                                            Phone : +1-3425-2335-44
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 10px;">
-                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <div
-                                                            class="gdlr-core-title-item-title gdlr-core-skin-title gdlr-core-title-font"
-                                                            style="font-size: 16px; font-weight: 700; letter-spacing: 0px; text-transform: none; color: #414141;"
-                                                        >
-                                                            Email :
-                                                            <a href="https://demo.goodlayers.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6516060d0a090417160d0c1516250e10100b0c1300174b000110">
-                                                                [email&#160;protected]
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-30">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 35px;">
-                                                    <div class="gdlr-core-title-item-title-wrap clearfix">
-                                                        <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" style="font-size: 24px; font-weight: 600; letter-spacing: 0px; text-transform: none; color: #1a1a1a;">
-                                                            Frequently Asked Questions
-                                                        </h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-accordion-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-accordion-style-background-title-icon gdlr-core-left-align gdlr-core-icon-pos-right">
-                                                    <div class="gdlr-core-accordion-item-tab clearfix gdlr-core-active">
-                                                        <div class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon"></div>
-                                                        <div class="gdlr-core-accordion-item-content-wrapper">
-                                                            <h4 class="gdlr-core-accordion-item-title gdlr-core-js gdlr-core-skin-e-background gdlr-core-skin-e-content">How long will the tour take?</h4>
-                                                            <div class="gdlr-core-accordion-item-content">
-                                                                <p>Provided by the KU Institute of Education, this programme is available by distance learning, allowing you to study flexibly while balancing work and personal lifes.</p>
-                                                                <p>
-                                                                    The MSc Finance (EG. Banking) deepens your understanding of banks and financial markets, and how they relate to performance. It will help you to advance your career in
-                                                                    finance and policy.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="gdlr-core-accordion-item-tab clearfix">
-                                                        <div class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon"></div>
-                                                        <div class="gdlr-core-accordion-item-content-wrapper">
-                                                            <h4 class="gdlr-core-accordion-item-title gdlr-core-js gdlr-core-skin-e-background gdlr-core-skin-e-content">Is there any parking nearby?</h4>
-                                                            <div class="gdlr-core-accordion-item-content">
-                                                                <p>Provided by the KU Institute of Education, this programme is available by distance learning, allowing you to study flexibly while balancing work and personal lifes.</p>
-                                                                <p>
-                                                                    The MSc Finance (EG. Banking) deepens your understanding of banks and financial markets, and how they relate to performance. It will help you to advance your career in
-                                                                    finance and policy.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="gdlr-core-accordion-item-tab clearfix">
-                                                        <div class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon"></div>
-                                                        <div class="gdlr-core-accordion-item-content-wrapper">
-                                                            <h4 class="gdlr-core-accordion-item-title gdlr-core-js gdlr-core-skin-e-background gdlr-core-skin-e-content">Can I leave my bags at meeting point?</h4>
-                                                            <div class="gdlr-core-accordion-item-content">
-                                                                <p>Provided by the KU Institute of Education, this programme is available by distance learning, allowing you to study flexibly while balancing work and personal lifes.</p>
-                                                                <p>
-                                                                    The MSc Finance (EG. Banking) deepens your understanding of banks and financial markets, and how they relate to performance. It will help you to advance your career in
-                                                                    finance and policy.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="gdlr-core-accordion-item-tab clearfix">
-                                                        <div class="gdlr-core-accordion-item-icon gdlr-core-js gdlr-core-skin-icon"></div>
-                                                        <div class="gdlr-core-accordion-item-content-wrapper">
-                                                            <h4 class="gdlr-core-accordion-item-title gdlr-core-js gdlr-core-skin-e-background gdlr-core-skin-e-content">Will the tour be cancelled due to weather?</h4>
-                                                            <div class="gdlr-core-accordion-item-content">
-                                                                <p>Provided by the KU Institute of Education, this programme is available by distance learning, allowing you to study flexibly while balancing work and personal lifes.</p>
-                                                                <p>
-                                                                    The MSc Finance (EG. Banking) deepens your understanding of banks and financial markets, and how they relate to performance. It will help you to advance your career in
-                                                                    finance and policy.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+                    <div class="mission-card">
+                        <div class="mission-card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="mission-card-content">
+                            <h3 style="font-family: 'Arial Black';">Développement Personnel</h3>
+                            <p>Acquérez les compétences clés du monde professionnel</p>
+                            <ul>
+                                <li>Leadership et communication</li>
+                                <li>Gestion du temps et priorisation</li>
+                                <li>Intelligence émotionnelle</li>
+                                <li>Créativité et innovation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Showcase -->
+                <div class="image-showcase">
+                    <div class="showcase-item">
+                        <img src="./images/Performics/career/WhatsApp%20Image%202025-07-11%20à%2013.24.48_6360cf6a.jpg" alt="Atelier CV" class="showcase-image">
+                        <div class="showcase-caption">Atelier perfectionnement CV avec experts RH</div>
+                    </div>
+                    <div class="showcase-item">
+                        <img src="./images/Performics/career/WhatsApp%20Image%202025-07-11%20à%2012.51.30_493a4da7.jpg" alt="Visite entreprise" class="showcase-image">
+                        <div class="showcase-caption">Immersion en entreprise - Découverte des métiers</div>
+                    </div>
+                    <div class="showcase-item">
+                        <img src="./images/Performics/career/WhatsApp%20Image%202025-07-11%20à%2012.56.21_73672268.jpg" alt="Shooting pro" class="showcase-image">
+                        <div class="showcase-caption">Séance shooting photo professionnelle</div>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="stats-section">
+                    <div class="stats-bg-pattern"></div>
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-number">30</div>
+                            <div class="stat-label">Étudiants placés en stage</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">9</div>
+                            <div class="stat-label">Conventions signées</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">Ateliers organisés</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Taux de satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Section -->
+                <div class="timeline-section">
+                    <div class="section-header">
+                        <h2 style="font-family: 'Arial Black';">Notre Impact en 2025</h2>
+                        <p>Des résultats concrets et un accompagnement complet</p>
+                    </div>
+
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3 style="font-family: 'Arial Black';">Partenariats Stratégiques</h3>
+                                <p>Signature de 9 conventions avec des leaders sectoriels pour offrir des opportunités de stage pertinentes à nos étudiants.</p>
+                                <img src="./images/Performics/career/WhatsApp%20Image%202025-07-11%20à%2013.24.48_6360cf6a.jpg" alt="Signature convention" class="timeline-image">
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3 style="font-family: 'Arial Black';">Immersion Professionnelle</h3>
+                                <p>30 étudiants placés en stage avec un suivi personnalisé tout au long de leur expérience en entreprise.</p>
+                                <img src="./images/Performics/career/WhatsApp%20Image%202025-07-11%20à%2012.56.20_7b753025.jpg" alt="Étudiants en stage" class="timeline-image">
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3 style="font-family: 'Arial Black';">Ateliers Thématiques</h3>
+                                <p>Programme complet d'ateliers CV, simulations d'entretien et optimisation de présence digitale.</p>
+                                <img src="./images/Performics/career/WhatsApp%20Image%202025-07-11%20à%2012.51.39_cb597847.jpg" alt="Atelier pratique" class="timeline-image">
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3 style="font-family: 'Arial Black';">Événements Networking</h3>
+                                <p>Afterworks professionnels et visites d'entreprises pour créer du lien avec le monde professionnel.</p>
+                                <img src="./images/Performics/career/WhatsApp%20Image%202025-07-11%20à%2013.20.43_28f236f2.jpg" alt="Événement networking" class="timeline-image">
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
+                <!-- CTA Section -->
+                <div class="cta-section">
+                    <div class="cta-particles" id="particles-js"></div>
+                    <div class="cta-content">
+                        <h2 style="font-family: 'Arial Black'; color: white;">Prêt à accélérer votre carrière ?</h2>
+                        <p>Rejoignez les nombreux étudiants qui ont transformé leur potentiel en succès professionnel grâce à notre accompagnement.</p>
+                        <a href="./index.html#nousEcrire" class="white-button">
+                            Contactez-nous <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
 
+            <script>
+                // Animation for timeline items on scroll
+                const timelineItems = document.querySelectorAll('.timeline-item');
 
-            <footer class="kingster-no-title-divider">
-                <div class="kingster-footer-wrapper">
-                    <div class="kingster-footer-container kingster-container clearfix">
-                        <div class="kingster-footer-column kingster-item-pdlr kingster-column-15">
-                            <div id="text-2" class="widget widget_text kingster-widget">
-                                <div class="textwidget">
-                                    <p>
-                                        <img src="upload/logo-HP.png" alt="" width="90" /><br />
-                                        <span class="gdlr-core-space-shortcode" style="margin-top: 0px;"></span><br />
-                                        Box 35300<br />
-                                        1810 Campus Way NE
-                                    </p>
-                                    <p>
-                                        <span style="font-size: 15px; color: #ffffff;">+1-2534-4456-345</span><br />
-                                        <span class="gdlr-core-space-shortcode" style="margin-top: -20px;"></span><br />
-                                        <a style="font-size: 15px; color: #8dd7e5;" href="#">
-                                            <span class="__cf_email__">test@gmail.com</span>
-                                        </a>
-                                    </p>
-                                </div>
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                timelineItems.forEach(item => {
+                    observer.observe(item);
+                });
+
+                // Create floating particles for CTA section
+                const ctaParticles = document.querySelector('.cta-particles');
+
+                for (let i = 0; i < 15; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+
+                    // Random size between 5 and 15px
+                    const size = Math.random() * 10 + 5;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+
+                    // Random position
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.bottom = `-${size}px`;
+
+                    // Random animation duration and delay
+                    const duration = Math.random() * 15 + 10;
+                    const delay = Math.random() * 10;
+                    particle.style.animation = `floatParticle ${duration}s linear ${delay}s infinite`;
+
+                    ctaParticles.appendChild(particle);
+                }
+            </script>
+
+            <footer class="performics-footer">
+                <!-- Section principale du footer -->
+                <div class="footer-main">
+                    <div class="footer-container">
+                        <!-- Colonne Logo & Contact -->
+                        <div class="footer-col footer-about">
+                            <img src="./images/Performics/logo-removebg-preview.png" alt="Performics School" class="footer-logo">
+                            <div class="contact-info">
+                                <p><i class="fas fa-map-marker-alt"></i> 282 Mbour 1, En face Stade Lat Dior<br>Thiès, Sénégal</p>
+                                <p><i class="fas fa-phone-alt"></i> <a href="tel:+221778090303">(+221) 77 809 03 03</a></p>
+                                <p><i class="fas fa-envelope"></i> <a href="mailto:contact@performics-group.sn">contact@performics-group.sn</a></p>
+                            </div>
+                            <div class="social-links">
+                                <a href="https://www.facebook.com/profile.php?id=100086752777369" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/performicsschool/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/performics-school-of-business-and-technology-743439269/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.youtube.com/@PerformicsSchool-28" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                             </div>
                         </div>
-                        <div class="kingster-footer-column kingster-item-pdlr kingster-column-15">
-                            <div id="gdlr-core-custom-menu-widget-2" class="widget widget_gdlr-core-custom-menu-widget kingster-widget">
-                                <h3 class="kingster-widget-title">Our Campus</h3>
-                                <span class="clear"></span>
-                                <div class="menu-our-campus-container">
-                                    <ul id="menu-our-campus" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Acedemic</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Planning &#038; Administration</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Campus Safety</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Office of the Chancellor</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Facility Services</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Human Resources</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+
+                        <!-- Colonne Notre Campus -->
+                        <div class="footer-col">
+                            <h3 style="font-family: 'Arial Black'; color: darkorange; " class="footer-title">Notre Campus</h3>
+                            <ul class="footer-links">
+                                <li><a href="./bachelor-of-science-in-business-administration.html">Programmes</a></li>
+                            </ul>
                         </div>
-                        <div class="kingster-footer-column kingster-item-pdlr kingster-column-15">
-                            <div id="gdlr-core-custom-menu-widget-4" class="widget widget_gdlr-core-custom-menu-widget kingster-widget">
-                                <h3 class="kingster-widget-title">Academics</h3>
-                                <span class="clear"></span>
-                                <div class="menu-academics-container">
-                                    <ul id="menu-academics" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Canvas</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Catalyst</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Library</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Time Schedule</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Apply For Admissions</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Pay My Tuition</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+
+                        <!-- Colonne Formations -->
+                        <div class="footer-col">
+                            <h3 style="font-family: 'Arial Black'; color: darkorange;" class="footer-title">Formations</h3>
+                            <ul class="footer-links">
+                                <li><a href="bachelor-of-science-in-business-administration.html">Licence en Gestion</a></li>
+                                <li><a href="school-of-law.html">Licence en Informatique</a></li>
+                                <li><a href="engineering.html">Licence Géomatique</a></li>
+                                <li><a href="medicine.html">Licence Electromécanique</a></li>
+                                <li><a href="finance.html">Licence Génie Civil</a></li>
+                            </ul>
                         </div>
-                        <div class="kingster-footer-column kingster-item-pdlr kingster-column-15">
-                            <div id="gdlr-core-custom-menu-widget-3" class="widget widget_gdlr-core-custom-menu-widget kingster-widget">
-                                <h3 class="kingster-widget-title">Campus Life</h3>
-                                <span class="clear"></span>
-                                <div class="menu-campus-life-container">
-                                    <ul id="menu-campus-life" class="gdlr-core-custom-menu-widget gdlr-core-menu-style-plain">
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Accessibility</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Financial Aid</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Food Services</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Housing</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Information Technologies</a></li>
-                                        <li class="menu-item  kingster-normal-menu"><a href="#">Student Life</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+
+                        <!-- Colonne Vie sur le Campus -->
+                        <div class="footer-col">
+                            <h3 style="font-family: 'Arial Black'; color: darkorange;" class="footer-title">Vie Étudiante</h3>
+                            <ul class="footer-links">
+                                <li><a href="./athletics.html">Vie Associative</a></li>
+
+                                <li><a href="./athletics.html">Clubs Étudiants</a></li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="footer-bottom">
+                    <div class="footer-container">
+                        <div class="copyright">
+                            © 2025 Performics Sénégal — Tous droits réservés
+                        </div>
+                        <div class="legal-links">
+                            <a href="#">Politique de confidentialité</a>
+                            <a href="#">Conditions d'utilisation</a>
+                            <a href="#">Mentions légales</a>
                         </div>
                     </div>
                 </div>
-                <div class="kingster-copyright-wrapper">
-                    <div class="kingster-copyright-container kingster-container clearfix">
-                        <div class="kingster-copyright-left kingster-item-pdlr">Copyright All Right Reserved 2020, Max Themes</div>
-                        <div class="kingster-copyright-right kingster-item-pdlr">
-                            <div class="gdlr-core-social-network-item gdlr-core-item-pdb gdlr-core-none-align" style="padding-bottom: 0px;">
-                                <a href="#" target="_blank" class="gdlr-core-social-network-icon" title="facebook"><i class="fa fa-facebook"></i></a>
-                                <a href="#" target="_blank" class="gdlr-core-social-network-icon" title="linkedin"><i class="fa fa-linkedin"></i></a>
-                                <a href="#" target="_blank" class="gdlr-core-social-network-icon" title="twitter"><i class="fa fa-twitter"></i></a>
-                                <a href="#" target="_blank" class="gdlr-core-social-network-icon" title="instagram"><i class="fa fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
             </footer>
+
+            <style>
+                /* Variables */
+                :root {
+                    --primary: darkorange;
+                    --secondary: gray;
+                    --dark-bg: #333;
+                    --light-text: #fff;
+                    --light-bg: #f5f5f5;
+                    --border-color: rgba(255,255,255,0.1);
+                }
+
+                /* Base Styles */
+                .performics-footer {
+                    font-family: 'Arial', sans-serif;
+                    color: var(--light-text);
+                    line-height: 1.6;
+                }
+
+                .footer-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 30px;
+                }
+
+                /* Footer Main Section */
+                .footer-main {
+                    background-color: var(--secondary);
+                    padding: 60px 0 40px;
+                }
+
+                .footer-col {
+                    flex: 1;
+                    min-width: 200px;
+                    margin-bottom: 20px;
+                }
+
+                .footer-about {
+                    min-width: 250px;
+                }
+
+                .footer-newsletter {
+                    min-width: 280px;
+                }
+
+                .footer-logo {
+                    max-width: 120px;
+                    height: auto;
+                    margin-bottom: 20px;
+                    filter: brightness(0) invert(1);
+                }
+
+                /* Titles */
+                .footer-title {
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    margin-bottom: 25px;
+                    position: relative;
+                    color: var(--primary);
+                }
+
+                .footer-title::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -10px;
+                    width: 50px;
+                    height: 2px;
+                    background-color: var(--primary);
+                }
+
+                /* Links */
+                .footer-links {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .footer-links li {
+                    margin-bottom: 12px;
+                }
+
+                .footer-links a {
+                    color: var(--light-text);
+                    text-decoration: none;
+                    transition: color 0.3s ease, padding-left 0.3s ease;
+                    display: block;
+                }
+
+                .footer-links a:hover {
+                    color: var(--primary);
+                    padding-left: 5px;
+                }
+
+                /* Contact Info */
+                .contact-info {
+                    margin-bottom: 25px;
+                }
+
+                .contact-info p {
+                    margin-bottom: 15px;
+                    display: flex;
+                    align-items: flex-start;
+                }
+
+                .contact-info i {
+                    margin-right: 10px;
+                    color: var(--primary);
+                    min-width: 20px;
+                    text-align: center;
+                    margin-top: 3px;
+                }
+
+                .contact-info a {
+                    color: var(--light-text);
+                    transition: color 0.3s ease;
+                }
+
+                .contact-info a:hover {
+                    color: var(--primary);
+                    text-decoration: none;
+                }
+
+                /* Social Links */
+                .social-links {
+                    display: flex;
+                    gap: 15px;
+                    margin-top: 20px;
+                }
+
+                .social-links a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background-color: rgba(255,255,255,0.1);
+                    color: var(--light-text);
+                    transition: all 0.3s ease;
+                }
+
+                .social-links a:hover {
+                    background-color: var(--primary);
+                    transform: translateY(-3px);
+                }
+
+                /* Newsletter */
+                .newsletter-form {
+                    display: flex;
+                    margin-top: 20px;
+                }
+
+                .newsletter-form input {
+                    flex: 1;
+                    padding: 12px 15px;
+                    border: none;
+                    border-radius: 4px 0 0 4px;
+                    font-size: 0.9rem;
+                }
+
+                .newsletter-form button {
+                    background-color: var(--primary);
+                    color: white;
+                    border: none;
+                    padding: 0 15px;
+                    border-radius: 0 4px 4px 0;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
+
+                .newsletter-form button:hover {
+                    background-color: #e67300;
+                }
+
+                /* Payment Methods */
+                .payment-methods {
+                    display: flex;
+                    gap: 10px;
+                    margin-top: 25px;
+                    flex-wrap: wrap;
+                }
+
+                .payment-methods img {
+                    height: 25px;
+                    width: auto;
+                    opacity: 0.8;
+                    transition: opacity 0.3s ease;
+                }
+
+                .payment-methods img:hover {
+                    opacity: 1;
+                }
+
+                /* Footer Bottom */
+                .footer-bottom {
+                    background-color: var(--primary);
+                    padding: 20px 0;
+                    text-align: center;
+                }
+
+                .footer-bottom .footer-container {
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .copyright {
+                    font-size: 0.9rem;
+                }
+
+                .legal-links {
+                    display: flex;
+                    gap: 20px;
+                }
+
+                .legal-links a {
+                    color: var(--light-text);
+                    font-size: 0.9rem;
+                    text-decoration: none;
+                    transition: opacity 0.3s ease;
+                }
+
+                .legal-links a:hover {
+                    opacity: 0.8;
+                    text-decoration: underline;
+                }
+
+                /* Back to Top Button */
+                .back-to-top {
+                    position: fixed;
+                    bottom: 30px;
+                    right: 30px;
+                    z-index: 99;
+                }
+
+                .back-to-top a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background-color: var(--primary);
+                    color: white;
+                    font-size: 1.2rem;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                    transition: all 0.3s ease;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                .back-to-top a.active {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .back-to-top a:hover {
+                    background-color: var(--secondary);
+                    transform: translateY(-5px);
+                }
+
+                /* Responsive Design */
+                @media (max-width: 992px) {
+                    .footer-col {
+                        min-width: 45%;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .footer-col {
+                        min-width: 100%;
+                    }
+
+                    .footer-bottom .footer-container {
+                        flex-direction: column;
+                        gap: 15px;
+                    }
+
+                    .legal-links {
+                        flex-wrap: wrap;
+                        justify-content: center;
+                    }
+
+                    .back-to-top {
+                        bottom: 20px;
+                        right: 20px;
+                    }
+
+                    .back-to-top a {
+                        width: 40px;
+                        height: 40px;
+                        font-size: 1rem;
+                    }
+                }
+            </style>
+
+
         </div>
     </div>
 
