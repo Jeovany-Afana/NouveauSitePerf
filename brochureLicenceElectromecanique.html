@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Téléchargement Brochure | Performics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FF8C00;
+      --primary-dark: #E67300;
+      --primary-light: #FFA726;
+      --dark: #2D3748;
+      --light: #F7FAFC;
+      --white: #FFFFFF;
+      --gray: #718096;
+      --success: #48BB78;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      padding: 5rem 0 8rem;
+      clip-path: ellipse(150% 100% at 50% 0%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA3KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+      opacity: 0.4;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Floating Form */
+    .form-container {
+      max-width: 1000px;
+      margin: -5rem auto 5rem;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+      z-index: 10;
+      transform: translateY(0);
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .form-container:hover {
+      transform: translateY(-5px);
+    }
+
+    .form-header {
+      background: var(--dark);
+      color: var(--white);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .form-header i {
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      color: var(--primary);
+    }
+
+    .form-header h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    /* Form Styles */
+    .brochure-form {
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark);
+      font-size: 0.9rem;
+    }
+
+    label.required::after {
+      content: " *";
+      color: var(--primary);
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      border: 2px solid #E2E8F0;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      background-color: var(--white);
+      appearance: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    select:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: "⌄";
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: var(--gray);
+    }
+
+    /* Radio & Checkbox */
+    .radio-group {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+    }
+
+    .radio-option input {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #CBD5E0;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .radio-option input:checked {
+      border-color: var(--primary);
+    }
+
+    .radio-option input:checked::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 10px;
+      height: 10px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .checkbox-group input {
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #CBD5E0;
+      border-radius: 4px;
+      margin-right: 0.75rem;
+      margin-top: 0.25rem;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .checkbox-group input:checked {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .checkbox-group input:checked::before {
+      content: "✓";
+      position: absolute;
+      color: white;
+      font-size: 0.7rem;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Submit Button */
+    .submit-btn {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 1.25rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Success Message */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      animation: bounceIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .success-icon i {
+      color: var(--white);
+      font-size: 2.5rem;
+    }
+
+    .success-message h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--success);
+    }
+
+    .success-message p {
+      color: var(--gray);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+
+    .download-btn {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+    }
+
+    .download-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 3rem 0 6rem;
+        clip-path: ellipse(200% 100% at 50% 0%);
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .form-container {
+        margin: -3rem auto 3rem;
+      }
+
+      .brochure-form {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+      }
+
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+
+      .radio-group {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+    }
+
+    /* Floating Particles */
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Téléchargez notre brochure exclusive</h1>
+    <p>Découvrez l'excellence académique de Performics à travers notre brochure détaillée. Toutes les informations pour votre orientation en un seul clic.</p>
+  </div>
+</section>
+
+<div class="form-container">
+  <div class="form-header">
+    <i class="fas fa-file-pdf"></i>
+    <h2>Demande de brochure 2025</h2>
+  </div>
+
+  <form id="brochureForm" class="brochure-form">
+    <div class="form-group full-width">
+      <label class="required">Vous êtes :</label>
+      <div class="radio-group">
+        <div class="radio-option">
+          <input type="radio" id="student" name="user_type" value="Étudiant" required>
+          <label for="student">Étudiant</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" id="parent" name="user_type" value="Parent">
+          <label for="parent">Parent</label>
+        </div>
+        <div class="radio-option">
+          <input type="radio" id="professional" name="user_type" value="Professionnel">
+          <label for="professional">Professionnel</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="first_name" class="required">Prénom</label>
+      <input type="text" id="first_name" name="first_name" placeholder="Votre prénom" required>
+    </div>
+
+    <div class="form-group">
+      <label for="last_name" class="required">Nom</label>
+      <input type="text" id="last_name" name="last_name" placeholder="Votre nom" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="required">Email</label>
+      <input type="email" id="email" name="email" placeholder="exemple@email.com" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone" class="required">Téléphone</label>
+      <input type="tel" id="phone" name="phone" placeholder="+33 6 12 34 56 78" required>
+    </div>
+
+    <div class="form-group">
+      <label for="education_level" class="required">Niveau d'étude actuel</label>
+      <div class="select-wrapper">
+        <select id="education_level" name="education_level" required>
+          <option value="" disabled selected>Choisissez votre niveau</option>
+          <option value="bac">Bac</option>
+          <option value="bac_2">Bac+2</option>
+          <option value="bac_3">Bac+3</option>
+          <option value="bac_4">Bac+4</option>
+          <option value="bac_5">Bac+5</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="school">École d'origine</label>
+      <input type="text" id="school" name="school" placeholder="Nom de votre établissement">
+    </div>
+
+    <div class="form-group">
+      <div class="checkbox-group">
+        <input type="checkbox" id="reconversion" name="reconversion">
+        <label for="reconversion">Je suis en reconversion professionnelle</label>
+      </div>
+    </div>
+
+    <div class="form-group full-width">
+      <div class="checkbox-group">
+        <input type="checkbox" id="gdpr" name="gdpr" required>
+        <label for="gdpr" class="required">J'accepte que mes données soient utilisées pour m'envoyer des informations sur les formations Performics, conformément à notre politique de confidentialité.</label>
+      </div>
+    </div>
+
+    <div class="form-group full-width" style="text-align: center;">
+      <button type="submit" class="submit-btn">
+        <i class="fas fa-download"></i> Télécharger la brochure
+      </button>
+    </div>
+  </form>
+
+  <div id="successMessage" class="success-message">
+    <div class="success-icon">
+      <i class="fas fa-check"></i>
+    </div>
+    <h2>Demande confirmée !</h2>
+    <p>Votre brochure est prête à être téléchargée. Un lien de téléchargement a également été envoyé à votre adresse email.</p>
+    <a href="#" class="download-btn" id="downloadLink">
+      <i class="fas fa-file-pdf"></i> Télécharger maintenant
+    </a>
+  </div>
+</div>
+
+<script>
+  /* ─── Réglage : URL de la Cloud Function ───────────────────────────── */
+  const ENDPOINT =
+          "https://us-central1-performics-92bb0.cloudfunctions.net/brochureElectromecanique"; // change si besoin
+
+  /* ─── Regex de validation ──────────────────────────────────────────── */
+  const REGEX = {
+    firstName : /^[A-Za-zÀ-ÿ' -]{2,30}$/,
+    lastName  : /^[A-Za-zÀ-ÿ' -]{2,30}$/,
+    email     : /^[\w.+-]+@\w+\.[\w.-]+$/,
+    phone     : /^\+?\d{6,15}$/,                // ex. +33612345678 ou 0612345678// années autorisées
+  };
+
+  /* ─── Création d’un spinner plein écran ────────────────────────────── */
+  const spinner = document.createElement("div");
+  spinner.id = "spinnerOverlay";
+  spinner.style.cssText = `
+  position:fixed; inset:0; background:rgba(255,255,255,.8); display:none;
+  align-items:center; justify-content:center; z-index:1000;
+`;
+  spinner.innerHTML = `
+  <i class="fas fa-circle-notch fa-spin" style="font-size:3rem;color:#FF8C00;"></i>
+`;
+  document.body.appendChild(spinner);
+
+  /* ─── Helpers UI ───────────────────────────────────────────────────── */
+  function showSpinner(show=true){ spinner.style.display = show ? "flex" : "none"; }
+  function err(el,msg){
+    el.setCustomValidity(msg);                 // HTML5 constraint API
+    el.reportValidity();
+  }
+  function ok(el){ el.setCustomValidity(""); }
+
+  /* ─── Soumission du formulaire ─────────────────────────────────────── */
+  document.getElementById("brochureForm").addEventListener("submit", async (e)=>{
+    e.preventDefault();
+    const form = e.target;
+
+    /* 1. Validation manuelle ----------------------------------------- */
+    const f = Object.fromEntries(new FormData(form).entries());
+
+    // noms / prénoms
+    if(!REGEX.firstName.test(f.first_name)) return err(form.first_name,"Prénom invalide");
+    if(!REGEX.lastName .test(f.last_name )) return err(form.last_name ,"Nom invalide"   );
+    ok(form.first_name); ok(form.last_name);
+
+    // e-mail & téléphone
+    if(!REGEX.email.test(f.email )) return err(form.email ,"E-mail invalide");
+    if(!REGEX.phone.test(f.phone )) return err(form.phone ,"Tél. invalide");
+    ok(form.email); ok(form.phone);
+
+
+    // GDPR coché ?
+    if(!form.gdpr.checked){
+      alert("Vous devez accepter la politique de confidentialité.");
+      return;
+    }
+
+    /* Checkbox → booléen */
+    f.reconversion = form.reconversion.checked;
+    f.gdpr         = form.gdpr.checked;
+
+    /* 2. Envoi -------------------------------------------------------- */
+    const submitBtn = form.querySelector(".submit-btn");
+    submitBtn.disabled = true;
+    showSpinner(true);
+
+    try{
+      const res = await fetch(ENDPOINT,{
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body:JSON.stringify(f)
+      });
+      if(!res.ok) throw new Error(await res.text());
+      const {downloadUrl} = await res.json();
+
+      /* 3. UI succès ------------------------------------------------- */
+      form.style.display = "none";
+      const success = document.getElementById("successMessage");
+      document.getElementById("downloadLink").href = downloadUrl;
+      success.style.display = "block";
+      success.scrollIntoView({behavior:"smooth"});
+
+    }catch(error){
+      console.error(error);
+      alert("Erreur : " + error.message);
+    }finally{
+      submitBtn.disabled = false;
+      showSpinner(false);
+    }
+  });
+</script>
+
+
+
+</body>
+</html>
