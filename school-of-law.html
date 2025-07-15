@@ -37,6 +37,35 @@
     />
     <link href="https://fonts.googleapis.com/css?family=Poppins:400%2C700%7CRoboto:400" rel="stylesheet" property="stylesheet" media="all" type="text/css" />
 
+    <style>
+        /* Empêche la mise en colonne lorsque l’écran fait ≤ 767 px */
+        @media (max-width: 767px) {
+            /* Cache la colonne d’espacement */
+            .gdlr-core-column-40 {
+                display: none;
+            }
+
+            /* Donne toute la largeur aux deux autres colonnes */
+            .gdlr-core-column-30,
+            #gdlr-core-column-4748 {
+                width: 100% !important;   /* force le 100 % même si le thème règle déjà quelque chose */
+                float: none !important;   /* empêche le flottement côte à côte */
+            }
+
+            /* Annule le margin négatif sur l’illustration */
+            #gdlr-core-column-4748 .gdlr-core-pbf-column-content-margin {
+                margin: 0 !important;
+                padding-left: 0 !important;
+            }
+
+            /* Centre proprement le bouton sur mobile */
+            .gdlr-core-button-item {
+                text-align: center !important;
+                margin-top: 20px;
+            }
+        }
+
+    </style>
 </head>
 
 <body class="home page-template-default page page-id-6208 gdlr-core-body tribe-no-js kingster-body kingster-body-front kingster-full kingster-with-sticky-navigation kingster-sticky-navigation-no-logo kingster-blockquote-style-1 gdlr-core-link-to-lightbox" >

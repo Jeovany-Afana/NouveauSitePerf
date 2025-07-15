@@ -38,6 +38,39 @@
     />
     <link href="https://fonts.googleapis.com/css?family=Poppins:400%2C700%7CRoboto:400" rel="stylesheet" property="stylesheet" media="all" type="text/css" />
 
+    <style>
+        /* Réorganisation mobile pour tous les blocs GoodLayers */
+        @media (max-width: 767px) {
+
+            /* 1. Toute colonne de 30 % passe en pleine largeur */
+            .gdlr-core-column-30,
+            #gdlr-core-column-4748 {          /* ← ta colonne image avec margin négatif */
+                width: 100% !important;
+                float: none !important;
+            }
+
+            /* 2. On annule le margin négatif et le padding gauche
+                  qui servaient au chevauchement sur desktop */
+            #gdlr-core-column-4748 .gdlr-core-pbf-column-content-margin {
+                margin: 0 !important;
+                padding-left: 0 !important;
+            }
+
+            /* 3. On centre le bouton pour qu’il reste bien visible */
+            .gdlr-core-button-item {
+                text-align: center !important;
+                margin-top: 20px;
+            }
+
+            /* 4. (Optionnel) on peut réduire un peu la taille de l’image pour éviter qu’elle
+                  déborde sur les très petits écrans */
+            .gdlr-core-image-item-wrap img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+
+    </style>
 </head>
 
 <body class="home page-template-default page page-id-6208 gdlr-core-body tribe-no-js kingster-body kingster-body-front kingster-full kingster-with-sticky-navigation kingster-sticky-navigation-no-logo kingster-blockquote-style-1 gdlr-core-link-to-lightbox" >
