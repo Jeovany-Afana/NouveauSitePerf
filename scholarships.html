@@ -968,25 +968,7 @@
                         <a class="" href="index.html"><img src="./images/Performics/logo-removebg-preview.png" alt="" width="200" height="200" title="logo HP" /></a>
                     </div>
                 </div>
-                <div class="kingster-mobile-menu-right">
-                    <div class="kingster-main-menu-search" id="kingster-mobile-top-search"><i class="fa fa-search"></i></div>
-                    <div class="kingster-top-search-wrap">
-                        <div class="kingster-top-search-close"></div>
-
-                        <div class="kingster-top-search-row">
-                            <div class="kingster-top-search-cell">
-                                <form role="search" method="get" class="search-form" action="#">
-                                    <input type="text" class="search-field kingster-title-font" placeholder="Search..." value="" name="s" />
-                                    <div class="kingster-top-search-submit"><i class="fa fa-search"></i></div>
-                                    <input type="submit" class="search-submit" value="Search" />
-                                    <div class="kingster-top-search-close"><i class="icon_close"></i></div>
-                                    <input type="hidden" name="ref" value="course" /><input type="hidden" name="post_type" value="lp_course" />
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Menu Mobile Premium -->
+<!-- Menu Mobile Premium -->
                 <div class="performics-mobile-menu">
                     <!-- Bouton hamburger amélioré -->
                     <div class="menu-toggle" style="background-color: darkorange; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -1186,6 +1168,13 @@
                             <li style="border-bottom: 1px solid rgba(0,0,0,0.05);">
                                 <a href="./scholarships.html" class="menu-link" style="display: block; padding: 18px 25px; color: #333; text-decoration: none; font-weight: 600;">
                                     <i class="fas fa-automobile" style="width: 25px; color: darkorange; margin-right: 10px;"></i> Career Service
+                                </a>
+                            </li>
+
+                            <!-- Contact -->
+                            <li style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                <a href="contact.html" class="menu-link" style="display: block; padding: 18px 25px; color: #fff; background-color: darkorange; text-decoration: none; font-weight: 600;">
+                                    <i class="fas fa-envelope" style="width: 25px; color: #fff; margin-right: 10px;"></i> Contact
                                 </a>
                             </li>
                         </ul>
@@ -1429,17 +1418,6 @@
                             transform: scale(1.05);
                         }
 
-                        /* Bouton recherche */
-                        .kingster-main-menu-search i {
-                            color: #333;
-                            transition: all 0.3s;
-                        }
-
-                        .kingster-main-menu-search:hover i {
-                            color: darkorange;
-                            transform: scale(1.1);
-                        }
-
                         /* Styles modernisés pour tous les menus déroulants */
                         .kingster-main-menu > ul > li.menu-item-has-children > .sub-menu {
                             border-top: 3px solid darkorange;
@@ -1602,7 +1580,7 @@
                                                         <div class="kingster-mega-menu-section-content">
                                                             <img src="./images/Performics/logo-removebg-preview.png" style="max-width: 180px; margin: 10px auto; display: block;" alt="Logo" />
                                                             <div style="text-align: center; margin-top: 15px;">
-                                                                <a href="./index.html#nousEcrire" style="display: inline-block; padding: 8px 20px; background: darkorange; color: white; border-radius: 4px; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Contactez-nous</a>
+                                                                <a href="contact.html" style="display: inline-block; padding: 8px 20px; background: darkorange; color: white; border-radius: 4px; font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">Contactez-nous</a>
                                                             </div>
                                                         </div>
                                                     </li>
@@ -1633,25 +1611,14 @@
                                             <a href="./scholarships.html" class="sf-with-ul-pre">Career Service</a>
 
                                         </li>
+                                        <li class="menu-item kingster-normal-menu">
+                                            <a href="contact.html" style="background-color: darkorange !important; color: #fff !important; padding: 14px 18px !important; margin: 11px 0 !important; border-radius: 30px !important; font-weight: 700; display: inline-block; line-height: 1;">
+                                                <i class="fa fa-envelope" style="margin-right: 6px;"></i>Contact
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
-                                <div class="kingster-main-menu-right-wrap clearfix kingster-item-mglr kingster-navigation-top">
-                                    <div class="kingster-main-menu-search" id="kingster-top-search"><i class="icon_search"></i></div>
-                                    <div class="kingster-top-search-wrap">
-                                        <div class="kingster-top-search-close"></div>
-                                        <div class="kingster-top-search-row">
-                                            <div class="kingster-top-search-cell">
-                                                <form role="search" method="get" class="search-form" action="#">
-                                                    <input type="text" class="search-field kingster-title-font" placeholder="Recherche..." value="" name="s" />
-                                                    <div class="kingster-top-search-submit"><i class="fa fa-search"></i></div>
-                                                    <input type="submit" class="search-submit" value="Rechercher" />
-                                                    <div class="kingster-top-search-close"><i class="icon_close"></i></div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+</div>
                         </div>
                     </div>
                 </header>
@@ -1994,7 +1961,7 @@
                     <div class="cta-content">
                         <h2 style="font-family: 'Arial Black'; color: white;">Prêt à accélérer votre carrière ?</h2>
                         <p>Rejoignez les nombreux étudiants qui ont transformé leur potentiel en succès professionnel grâce à notre accompagnement.</p>
-                        <a href="./index.html#nousEcrire" class="white-button">
+                        <a href="contact.html" class="white-button">
                             Contactez-nous <i class="fas fa-paper-plane"></i>
                         </a>
                     </div>
