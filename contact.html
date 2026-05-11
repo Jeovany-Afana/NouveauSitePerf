@@ -149,6 +149,25 @@
                                         <input name="nom" autocomplete="family-name" required>
                                     </div>
                                 </div>
+                                <div class="form-field">
+                                    <label>Sexe <span class="required">*</span></label>
+                                    <div class="sex-toggle">
+                                        <label class="sex-option">
+                                            <input type="radio" name="sexe" value="Homme" required>
+                                            <span class="sex-pill">
+                                                <i class="fas fa-mars"></i>
+                                                Homme
+                                            </span>
+                                        </label>
+                                        <label class="sex-option">
+                                            <input type="radio" name="sexe" value="Femme" required>
+                                            <span class="sex-pill">
+                                                <i class="fas fa-venus"></i>
+                                                Femme
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
                                 <div class="form-nav">
                                     <span></span>
                                     <button type="button" class="btn-next" data-next="2">
@@ -608,6 +627,59 @@
                             background: #fff5f3;
                             animation: shake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97);
                         }
+                        .info-form .form-field.has-error .sex-pill {
+                            border-color: #e74c3c;
+                            background: #fff5f3;
+                            animation: shake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+                        }
+
+                        /* ── Sélecteur de sexe (radio en pills) ──── */
+                        .sex-toggle {
+                            display: flex;
+                            gap: 12px;
+                            flex-wrap: wrap;
+                        }
+                        .sex-option {
+                            flex: 1 1 calc(50% - 6px);
+                            min-width: 120px;
+                            cursor: pointer;
+                            margin: 0;
+                        }
+                        .sex-option input {
+                            position: absolute;
+                            opacity: 0;
+                            pointer-events: none;
+                        }
+                        .sex-pill {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 10px;
+                            padding: 13px 18px;
+                            border: 1.5px solid #e8e8e8;
+                            border-radius: 10px;
+                            background: #fafafa;
+                            color: #555;
+                            font-weight: 600;
+                            font-size: 14px;
+                            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+                        }
+                        .sex-pill i { font-size: 16px; opacity: 0.75; }
+                        .sex-option:hover .sex-pill {
+                            border-color: rgba(255,140,0,0.4);
+                            background: #fff;
+                            transform: translateY(-1px);
+                        }
+                        .sex-option input:checked + .sex-pill {
+                            border-color: darkorange;
+                            background: linear-gradient(135deg, rgba(255,167,38,0.15), rgba(255,140,0,0.18));
+                            color: darkorange;
+                            box-shadow: 0 4px 14px rgba(255,140,0,0.18);
+                        }
+                        .sex-option input:checked + .sex-pill i { opacity: 1; }
+                        .sex-option input:focus-visible + .sex-pill {
+                            box-shadow: 0 0 0 4px rgba(255,140,0,0.2);
+                        }
                         @keyframes shake {
                             0%, 100% { transform: translateX(0); }
                             20%      { transform: translateX(-6px); }
@@ -990,10 +1062,21 @@
         const validateStep = n => {
             const get = name => form.querySelector(`[name="${name}"]`);
             if (n === 1) {
-                const prenom = get('prenom').value.trim();
-                const nom    = get('nom').value.trim();
+                const prenom   = get('prenom').value.trim();
+                const nom      = get('nom').value.trim();
+                const sexeNode = form.querySelector('input[name="sexe"]:checked');
                 if (!nameRE.test(prenom)) return showError(get('prenom'), 'Prénom invalide (2 à 40 lettres).'), false;
                 if (!nameRE.test(nom))    return showError(get('nom'),    'Nom invalide (2 à 40 lettres).'), false;
+                if (!sexeNode) {
+                    const wrap = form.querySelector('.sex-toggle')?.closest('.form-field');
+                    if (wrap) {
+                        wrap.classList.remove('has-error');
+                        void wrap.offsetWidth;
+                        wrap.classList.add('has-error');
+                    }
+                    alert('Veuillez sélectionner votre sexe.');
+                    return false;
+                }
             }
             if (n === 2) {
                 const tel     = get('telephone').value.trim();
@@ -1051,6 +1134,7 @@
             const data = {
                 prenom:        (fd.get('prenom')        || '').trim(),
                 nom:           (fd.get('nom')           || '').trim(),
+                sexe:          (fd.get('sexe')          || '').trim(),
                 adresse:       (fd.get('adresse')       || '').trim(),
                 email:         (fd.get('email')         || '').trim(),
                 telephone:     (fd.get('telephone')     || '').trim(),
